@@ -16,6 +16,7 @@
   padding: 1rem 0;
   box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
   position: fixed;
+  background-color: $primary-background;
 
   &__heading {
     font-size: 7rem;
@@ -51,4 +52,74 @@
 
 .active {
   border-bottom: 2px solid $primary-color;
+}
+
+.footer {
+  background-color: $footer-background;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 200;
+  }
+
+  &__subheading {
+    font-size: 2.5rem;
+    font-weight: 200;
+    padding: 1rem;
+  }
+
+  &__form {
+    padding: 1rem;
+  }
+
+  &__input {
+    background-color: $footer-background;
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 2px solid $secondary-background;
+    color: white;
+    width: 25rem;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__button {
+    background-color: $secondary-background;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 2rem;
+    color: white;
+    width: 15rem;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: 200;
+    padding: 1rem;
+  }
+
+  &__instagram {
+    display: flex;
+    justify-content: center;
+    color: $primary-color;
+    padding: 1rem;
+
+    &__icon {
+      height: 2rem;
+    }
+
+    &__handle {
+      padding-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
 }

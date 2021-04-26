@@ -1,13 +1,12 @@
 import React from 'react'
-import Header from '../../components/Header'
 import heroImage from '../../assets/images/ap-dog-1.jpg'
+import './Home.scss'
 
 
 export default function Home() {
   return (
-    <div>
-      <Header />
-
+    <div className="home">
+      <img src={heroImage} className="home__hero"/>
     </div>
   )
 }

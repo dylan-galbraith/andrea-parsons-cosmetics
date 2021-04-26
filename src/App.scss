@@ -1,3 +1,9 @@
 @use './partials/resets' as *;
 @use './partials/variables' as *;
 @use './partials/mixins' as *;
+
+.App {
+  background-color: $primary-background;
+  min-height: 100vh;
+  color: $primary-color;
+}

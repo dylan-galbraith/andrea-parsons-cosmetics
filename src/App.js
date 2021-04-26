@@ -1,10 +1,15 @@
 import './App.scss';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <h1>Andrea Parsons</h1>
-      <h2>Cosmetic Nurse Injector</h2>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/' exact component={Home} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

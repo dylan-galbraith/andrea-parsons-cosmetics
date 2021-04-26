@@ -7,7 +7,7 @@ export default function Header() {
       <h1 className="header__heading">Andrea Parsons</h1>
       <h2 className="header__subheading">cosmetic nurse injector</h2>
       <nav className="header__nav">
-        <NavLink className="header__nav__link" to='/'>HOME</NavLink>
+        <NavLink className="header__nav__link" to='/' exact>HOME</NavLink>
         <NavLink className="header__nav__link" to='/book'>BOOK</NavLink>
         <NavLink className="header__nav__link" to='/services'>SERVICES</NavLink>
         <NavLink className="header__nav__link" to='/about'>ABOUT</NavLink>

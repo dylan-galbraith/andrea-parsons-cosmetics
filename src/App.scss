@@ -96,6 +96,10 @@
     margin-left: 2rem;
     color: white;
     width: 15rem;
+    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.2);
+    &:hover {
+      cursor: pointer;
+    }
     &:focus {
       outline: none;
     }

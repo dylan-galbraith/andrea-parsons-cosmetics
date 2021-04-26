@@ -1,0 +1,97 @@
+@use '../../partials/variables' as *;
+
+.about {
+  padding-top: 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__first {
+    display: flex;
+    padding: 2rem;
+    width: 70vw;
+  }
+
+  &__bio {
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  &__button {
+    background-color: $secondary-background;
+    border: none;
+    padding: 0.5rem;
+    margin-left: 2rem;
+    color: white;
+    width: 15rem;
+    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.2);
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }    
+
+
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+
+    &--brown {
+      background-color: $primary-color;
+      letter-spacing: 0.3rem;
+      padding: 1rem;
+    }
+  }
+
+  &__image {
+    width: 30vw;
+    height: 40vw;
+    object-fit: cover;
+  }
+
+  &__second {
+    background-color: $secondary-background;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 3rem;
+  }
+
+  &__services {
+    font-size: 3rem;
+    font-weight: 200;
+    width: 30%;
+    text-align: center;
+    margin-right: 4rem;
+  }
+
+  &__third {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    padding: 2rem 0;
+  }
+
+  &__review {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  &__name {
+    align-self: flex-end;
+    font-weight: 600;
+  }
+}

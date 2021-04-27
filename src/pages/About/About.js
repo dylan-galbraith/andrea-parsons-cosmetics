@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './About.scss'
 import headshot from '../../assets/images/ap-dog-2.jpg'
 import { Link } from 'react-router-dom'
 
 export default function About() {
+
+  useEffect(()=>{
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <main className="about">
       <div className="about__first">

@@ -1,0 +1,42 @@
+@use '../../partials/variables' as *;
+
+.contact {
+  padding-top: 17rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__first {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+  }
+
+  &__button {
+    background-color: $secondary-background;
+    border: none;
+    padding: 0.5rem;
+    color: white;
+    width: 15rem;
+    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.2);
+    margin: 1rem;
+    text-align: center;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }    
+  }
+}

@@ -12,7 +12,7 @@ export default function Footer() {
       </form>
       <p className="footer__text">Don't forget to follow on Instagram</p>
       <div className="footer__instagram">
-        <img className="footer__instagram__icon" src={instagram} />
+        <img className="footer__instagram__icon" src={instagram} alt="" />
         <p className="footer__instagram__handle">@cosmetic.nurse.ange</p>
       </div>
     </div>

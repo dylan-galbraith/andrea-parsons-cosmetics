@@ -12,7 +12,7 @@ export default function About() {
           <a href="https://www.instagram.com/cosmetic.nurse.ange/" className="about__button">Follow on Instagram</a>
           <p className="about__text">Lacus viverra vitae congue eu consequat ac felis donec et. Pellentesque elit eget gravida cum sociis natoque penatibus et. Ipsum faucibus vitae aliquet nec ullamcorper.</p>
         </div>
-        <img className="about__image" src={headshot} />
+        <img className="about__image" src={headshot} alt=""/>
       </div>
       <div className="about__second">
         <p className="about__services">Take a look at our services!</p>

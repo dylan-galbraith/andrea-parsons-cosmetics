@@ -18,10 +18,28 @@
   position: fixed;
   background-color: $primary-background;
 
+  &__line {
+    position: absolute;
+    top: 7rem;
+    &--left {
+      left: 0;
+    }
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__logo {
+    background-color: $primary-background;
+    z-index: 1;
+    padding: 0 1rem;
+  }
+
   &__heading {
     font-size: 7rem;
     font-weight: 100;
     letter-spacing: -0.7rem;
+    text-align: center;
   }
 
   &__subheading {

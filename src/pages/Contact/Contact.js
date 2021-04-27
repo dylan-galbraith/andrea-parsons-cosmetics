@@ -13,6 +13,13 @@ export default function Contact() {
         <a className="contact__button">Instagram</a>
         <p className="contact__text">Or fill out the form below!</p>
       </div>
+      <form className="contact__form">
+        <input className="contact__input" placeholder="First Name" />
+        <input className="contact__input" placeholder="Last Name" />
+        <input className="contact__input" placeholder="Email" />
+        <textarea className="contact__input contact__input--textarea" placeholder="Message" />
+        <button className="contact__button contact__button--brown">SEND</button>
+      </form>
     </main>
   )
 }

@@ -7,7 +7,7 @@
   align-items: center;
 
   &__first {
-    padding: 2rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,10 +16,12 @@
   &__heading {
     font-size: 2rem;
     padding-bottom: 1rem;
+    font-weight: 300;
   }
 
   &__text {
     font-size: 1.5rem;
+    font-weight: 300;
   }
 
   &__button {
@@ -38,5 +40,36 @@
     &:focus {
       outline: none;
     }    
+    &--brown {
+      background-color: $primary-color;
+      letter-spacing: 0.3rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $secondary-background;
+    width: 100%;
+    padding: 3rem;
+  }
+
+  &__input {
+    background-color: $secondary-background;
+    border: none;
+    padding: 0.5rem;
+    border-bottom: 1px solid $secondary-color;
+    color: white;
+    width: 25rem;
+    margin: 0.5rem;
+    &:focus {
+      outline: none;
+    }
+
+    &--textarea {
+      resize: none;
+      height: 6rem;
+    }
   }
 }

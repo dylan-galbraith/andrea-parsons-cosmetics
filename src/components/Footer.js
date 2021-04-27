@@ -11,10 +11,10 @@ export default function Footer() {
         <button className="footer__button">Subscribe!</button>
       </form>
       <p className="footer__text">Don't forget to follow on Instagram</p>
-      <div className="footer__instagram">
+      <a className="footer__instagram" href="https://www.instagram.com/cosmetic.nurse.ange/" target="_blank" rel="noopener noreferrer">
         <img className="footer__instagram__icon" src={instagram} alt="" />
         <p className="footer__instagram__handle">@cosmetic.nurse.ange</p>
-      </div>
+      </a>
     </div>
   )
 }

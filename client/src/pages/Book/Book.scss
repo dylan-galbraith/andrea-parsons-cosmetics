@@ -33,25 +33,7 @@
   }
 
   &__button {
-    background-color: $secondary-background;
-    border: none;
-    padding: 0.5rem;
-    color: white;
-    width: 15rem;
-    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.2);
-    margin: 1rem;
-    text-align: center;
-    text-decoration: none;
-    &:hover {
-      cursor: pointer;
-    }
-    &:focus {
-      outline: none;
-    }    
-    &--brown {
-      background-color: $primary-color;
-      letter-spacing: 0.3rem;
-    }  
+    @include button;
   }
 
   &__card {
@@ -64,9 +46,83 @@
     align-items: center;
     border-radius: 1rem;
     padding: 1rem;
+    box-shadow: 5px 5px 5px rgb(0, 0, 0, 0.2);
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__time {
+      font-size: 2rem;
+      font-weight: 800;
+    }
 
     &__text {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__heading {
       font-size: 2rem;
+      font-weight: 300;
+      padding-bottom: 1rem;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 1rem;
+    }
+
+    &__info {
+      font-weight: 600;
+      font-size: 1.2rem
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+    }
+
+    &__select {
+      background-color: $primary-color;
+      border: none;
+      margin-bottom: 1rem;
+      color: white;
+      font-weight: 600;
+      padding: 0.5rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__textarea {
+      resize: none;
+      width: 100%;
+      background-color: $primary-color;
+      height: 8rem;
+      border: 1px solid $secondary-color;
+      color: white;
+      padding: 0.5rem;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__button {
+      @include button;
+
+      &--cancel {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
     }
   }
 }

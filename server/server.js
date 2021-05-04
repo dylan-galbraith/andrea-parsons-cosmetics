@@ -15,6 +15,9 @@ app.get('/', (req, res) => {
 
 app.get('/appointments', async (req, res) => {
   const result = await prisma.appointment.findMany({
+    where: {
+      filled: false
+    },
     orderBy: {
       hour: 'asc'
     }
@@ -29,11 +32,7 @@ app.put('/appointments/:appointmentId', async (req, res) => {
       id: parseInt(req.params.appointmentId)
     },
     data: {
-      client: {
-        connect: {
-          id: req.body.id
-        }
-      },
+      clientId: req.body.id,
       services: req.body.service,
       comments: req.body.comments,
       filled: true
@@ -46,7 +45,7 @@ app.post('/client', async (req, res) => {
   const result = await prisma.client.create({
     data: {
       id: req.body.id,
-      firstNam: req.body.fName,
+      firstName: req.body.fName,
       lastName: req.body.lName,
       email: req.body.email,
       phone: req.body.phone

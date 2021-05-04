@@ -16,7 +16,6 @@ model Client {
   lastName        String              @db.VarChar(255)
   email           String              @unique @db.VarChar(255)
   phone           String              @db.VarChar(255)
-  appts           Appointment[]
 }
 
 model Appointment {
@@ -27,5 +26,5 @@ model Appointment {
   location        String              @db.VarChar(255)
   services        String              @db.VarChar(255)
   comments        String              @db.VarChar(255)
-  client          Client[]              
+  clientId        String?             @db.VarChar(255)  
 }

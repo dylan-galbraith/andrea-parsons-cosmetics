@@ -16,16 +16,17 @@ model Client {
   lastName        String              @db.VarChar(255)
   email           String              @unique @db.VarChar(255)
   phone           String              @db.VarChar(255)
-  appts           Appointments[]
+  appts           Appointment[]
 }
 
-model Appointments {
+model Appointment {
   id              Int                 @id @default(autoincrement())
   hour            Int                 
   date            String              @db.VarChar(255)
   filled          Boolean             @default(false)
   location        String              @db.VarChar(255)
   services        String              @db.VarChar(255)
+  comments        String              @db.VarChar(255)
   client          Client?             @relation(fields: [clientId], references: [id])
   clientId        String?             @db.VarChar(255)
 }

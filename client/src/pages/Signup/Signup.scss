@@ -1,0 +1,10 @@
+.signup {
+  padding-top: 16.8rem;
+
+  &__input {
+    color: black;
+    &::placeholder {
+      color: black;
+    }
+  }
+}

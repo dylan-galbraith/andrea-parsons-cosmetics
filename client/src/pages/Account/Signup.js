@@ -28,8 +28,8 @@ export default function Signup() {
     try {
       setError('')
       setLoading(true)
-      await signup(e.target.email.value, e.target.password.value, e.target.name.value)
-      history.push('/book')
+      await signup(e.target.email.value, e.target.password.value)
+      history.push('/account')
     } catch {
       setError("Failed to create an account")
     }
@@ -44,7 +44,6 @@ export default function Signup() {
     <main className="account">
       <h1 className="account__heading">Signup</h1>
       <form className="account__form" onSubmit={handleSubmit}>
-        <input className="account__input" placeholder="First Name" name="name" />
         <input className="account__input" placeholder="Email" name="email" />
         <input className="account__input" placeholder="Password" name="password" type="password" />
         <input className="account__input" placeholder="Confirm Password" name="confirm" type="password" />

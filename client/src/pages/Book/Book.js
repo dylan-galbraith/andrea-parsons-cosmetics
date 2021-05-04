@@ -50,7 +50,7 @@ export default function Book() {
     if (!e.target.service.value || !currentUser) {
       setError("Please select a service")
     }
-    if(!error) {
+    if(e.target.service.value) {
       const client = {
         id: currentUser.uid,
         service: e.target.service.value,

@@ -47,7 +47,6 @@ export default function Book() {
 
   function handleConfirmation(e) {
     e.preventDefault();
-    console.log(e.target.service.value);
     if (!e.target.service.value || !currentUser) {
       setError("Please select a service")
     }
@@ -58,8 +57,11 @@ export default function Book() {
         comments: e.target.comments.value
       }
       console.log(client);
-      // axios
-      //   .put(`http://localhost:8070/appointments/${selectedAppt.id}`, client)
+      axios
+        .put(`http://localhost:8070/appointments/${selectedAppt.id}`, client)
+        .then(response => {
+          console.log(response);
+        })
     }
   }
 

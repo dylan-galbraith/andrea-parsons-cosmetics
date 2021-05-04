@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/appointments', async (req, res) => {
-  const result = await prisma.appointments.findMany({
+  const result = await prisma.appointment.findMany({
     orderBy: {
       hour: 'asc'
     }
@@ -22,22 +22,37 @@ app.get('/appointments', async (req, res) => {
   res.json(result)
 })
 
-app.put('appointments/:appointmentId', async (req, res) => {
-  const result = await prisma.appointments.update({
+app.put('/appointments/:appointmentId', async (req, res) => {
+  console.log(req.body);
+  const result = await prisma.appointment.update({
     where: {
-      id: req.params.appointmentId
+      id: parseInt(req.params.appointmentId)
     },
     data: {
-      user: {
+      client: {
         connect: {
           id: req.body.id
         }
       },
-      service: req.body.service,
-      comment: req.body.comments,
+      services: req.body.service,
+      comments: req.body.comments,
       filled: true
     }
   })
+  res.json(result)
+})
+
+app.post('/client', async (req, res) => {
+  const result = await prisma.client.create({
+    data: {
+      id: req.body.id,
+      firstNam: req.body.fName,
+      lastName: req.body.lName,
+      email: req.body.email,
+      phone: req.body.phone
+    }
+  })
+  res.json(result)
 })
 
 app.listen(PORT, () => {

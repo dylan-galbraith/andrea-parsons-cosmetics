@@ -27,6 +27,5 @@ model Appointment {
   location        String              @db.VarChar(255)
   services        String              @db.VarChar(255)
   comments        String              @db.VarChar(255)
-  client          Client?             @relation(fields: [clientId], references: [id])
-  clientId        String?             @db.VarChar(255)
+  client          Client[]              
 }

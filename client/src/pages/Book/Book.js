@@ -113,7 +113,7 @@ export default function Book() {
               <p className="book__card__text">Location: {item.location}</p>
             </div>
           )  
-        } else return
+        } else return null
       })}
     </main>
   )

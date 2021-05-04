@@ -21,7 +21,7 @@ export default function Login() {
       setError('')
       setLoading(true)
       await login(e.target.email.value, e.target.password.value, e.target.name.value)
-      history.push('/')
+      history.push('/book')
     } catch {
       setError("Failed to create an account")
     }
@@ -29,7 +29,7 @@ export default function Login() {
   }
 
   if (currentUser) {
-    history.push('/account')
+    history.push('/book')
   }
 
   console.log(error);
@@ -39,7 +39,7 @@ export default function Login() {
       <h1 className="account__heading">Login</h1>
       <form className="account__form" onSubmit={handleLogin}>
         <input className="account__input" placeholder="Email" name="email" />
-        <input className="account__input" placeholder="Password" name="password" />
+        <input className="account__input" placeholder="Password" name="password" type="password" />
         <button className="account__button account__button--brown" disabled={loading}>LogIn</button>
         <p className="account__login">Already have an account? <Link className="account__login" to='/signup'>SignUp</Link></p>
       </form>

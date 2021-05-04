@@ -2,10 +2,32 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+model Client {
+  id              String              @id @db.VarChar(255)
+  firstName       String              @db.VarChar(255)
+  lastName        String              @db.VarChar(255)
+  email           String              @unique @db.VarChar(255)
+  phone           String              @db.VarChar(255)
+  appts           Appointments[]
+}
+
+model Appointments {
+  id              Int                 @id @default(autoincrement())
+  hour            Int                 
+  day             Int                 
+  month           Int                 
+  year            Int                 
+  filled          Boolean             @default(false)
+  location        String              @db.VarChar(255)
+  services        String              @db.VarChar(255)
+  client          Client?             @relation(fields: [clientId], references: [id])
+  clientId        String?             @db.VarChar(255)
 }

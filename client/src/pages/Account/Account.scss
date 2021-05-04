@@ -1,0 +1,57 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+.account {
+  padding-top: 16.8rem;
+  padding-top: 16.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 200;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: $secondary-background;
+  }
+
+  &__input {
+    color: $secondary-color;
+    background-color: $secondary-background;
+    border: none;
+    border-bottom: 1px solid $secondary-color;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    width: 30%;
+    &:focus{
+      outline: none;
+    }
+  }
+
+  &__button {
+    @include button;
+  }
+
+  &__login {
+    color: $secondary-color;
+  }
+}
+
+.login {
+  padding-top: 16.8rem;
+
+  &__input {
+    color: black;
+    &::placeholder {
+      color: black;
+    }
+  }
+}

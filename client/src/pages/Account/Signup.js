@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import './Signup.scss'
+import './Account.scss'
 import { useAuth } from '../../contexts/AuthContext'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 export default function Signup() {
 
@@ -37,21 +37,19 @@ export default function Signup() {
   }
 
   if (currentUser) {
-    history.push('/book')
+    history.push('/account')
   }
 
-  console.log(error);
-
   return (
-    <main className="signup">
-      <h1>Signup</h1>
-      <form onSubmit={handleSubmit}>
-        <input className="signup__input" placeholder="First Name" name="name" />
-        {/* <input className="signup__input" placeholder="Last Name" name="lName" /> */}
-        <input className="signup__input" placeholder="Email" name="email" />
-        <input className="signup__input" placeholder="Password" name="password" />
-        <input className="signup__input" placeholder="Confirm Password" name="confirm" />
-        <button>Signup</button>
+    <main className="account">
+      <h1 className="account__heading">Signup</h1>
+      <form className="account__form" onSubmit={handleSubmit}>
+        <input className="account__input" placeholder="First Name" name="name" />
+        <input className="account__input" placeholder="Email" name="email" />
+        <input className="account__input" placeholder="Password" name="password" />
+        <input className="account__input" placeholder="Confirm Password" name="confirm" />
+        <button className="account__button account__button--brown" disabled={loading}>SignUp</button>
+        <p className="account__login">Already have an account? <Link className="account__login" to='/login'>LogIn</Link></p>
       </form>
     </main>
   )

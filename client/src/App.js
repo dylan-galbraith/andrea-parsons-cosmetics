@@ -8,8 +8,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
-import Signup from './pages/Signup/Signup';
 import Book from './pages/Book/Book';
+import Account from './pages/Account/Account';
+import Signup from './pages/Account/Signup';
+import Login from './pages/Account/Login';
 
 function App() {
   return (
@@ -21,8 +23,10 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <Route path='/signup' component={Signup} />
+            <PrivateRoute path='/account' component={Account} />
             <PrivateRoute path='/book' component={Book} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/login' component={Login} />
           </Switch>
           <Footer />
         </AuthProvider>

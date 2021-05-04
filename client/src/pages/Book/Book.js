@@ -15,10 +15,11 @@ const customStyles = {
 export default function Book() {
 
   const { currentUser } = useAuth()
-  const [ appts, setAppts ] = useState()
+  const [ appts, setAppts ] = useState([])
   const [ date, setDate ] = useState()
   const [ selectedAppt, setSelectedAppt ] = useState("")
   const [modalIsOpen,setIsOpen] = useState(false);
+  const [ error, setError ] = useState()
 
   function openModal(item) {
     setIsOpen(true);
@@ -27,27 +28,41 @@ export default function Book() {
 
   function closeModal(){
     setIsOpen(false);
+    setError();
   }
   
   useEffect(()=>{
     window.scrollTo(0,0)
     axios
-      .get(`http://localhost:8070/appointments/${date}`)
-      .then(response => {
-        setAppts(response.data)
-      })
+    .get(`http://localhost:8070/appointments`)
+    .then(response => {
+      setAppts(response.data)
+    })
   }, [])
 
-  function handleMonth(e) {
+  function handleDate(e) {
     e.preventDefault();
     setDate(e.target.date.value)
   }
 
-  function handleConfirmation() {
-    console.log("Confirmed");
+  function handleConfirmation(e) {
+    e.preventDefault();
+    console.log(e.target.service.value);
+    if (!e.target.service.value || !currentUser) {
+      setError("Please select a service")
+    }
+    if(!error) {
+      const client = {
+        id: currentUser.uid,
+        service: e.target.service.value,
+        comments: e.target.comments.value
+      }
+      console.log(client);
+      // axios
+      //   .put(`http://localhost:8070/appointments/${selectedAppt.id}`, client)
+    }
   }
 
-  if(!appts) return <p>Loading...</p>
   return (
     <main className="book">
       <Modal
@@ -71,19 +86,20 @@ export default function Book() {
             <p className="book__modal__info">{selectedAppt.location}</p>
           </div>
           <form onSubmit={handleConfirmation} className="book__modal__form">
-            <select className="book__modal__select">
-              <option>--Select Service--</option>
-              <option>Option 1</option>
-              <option>Option 2</option>
+            <select name="service" className="book__modal__select">
+              <option value="">--Select Service--</option>
+              <option value="Option 1">Option 1</option>
+              <option value="Option 2">Option 2</option>
             </select>
-            <textarea className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
+            <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
+            <p>{error}</p>
             <button className="book__modal__button">BOOK</button>
           </form>
           <button onClick={closeModal} className="book__modal__button book__modal__button--cancel">CANCEL</button>
         </div>
       </Modal>
       <h1 className="book__heading">Welcome {currentUser.displayName}!</h1>
-      <form className="book__form" onSubmit={handleMonth}>
+      <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
         <input className="book__input" type="date" name="date" />
         <button className="book__button book__button--brown">Find</button>

@@ -89,6 +89,35 @@ export default function Book() {
     }
   }
 
+  if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) return (
+    <main className="book">
+      <h1 className="book__heading">Hello Boss!</h1>
+      <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
+      <form className="book__form" onSubmit={handleDate}>
+        <p className="book__text">Please select a date to view/add time slots:</p>
+        <div>
+          <input className="book__input" type="date" name="date" />
+          <button className="book__button book__button--brown">Find</button>
+        </div>
+      </form>
+      
+      {appts.map(item => {
+        if (item.date === date) {
+          return (
+            <div key={item.id} onClick={()=>{openModal(item)}} className={item.filled ? "book__card book__card--filled" : "book__card"}>
+              <p className="book__card__time">{item.filled ? "FILLED" : ""}</p>
+              <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
+              <p className="book__card__text">Location: {item.location}</p>
+              <p className="book__card__text">{item.filled ? `Client: ${item.clientId}` : ""}</p>
+              <p className="book__card__text">{item.filled ? `Service: ${item.services}` : ""}</p>
+              <p className="book__card__text">{item.filled ? `Comments: ${item.comments ? item.comments : "N/A"}` : ""}</p>
+            </div>
+          )  
+        } else return null
+      })}
+    </main>
+  )
+
   return (
     <main className="book">
       <Modal
@@ -108,7 +137,7 @@ export default function Book() {
       </form>
       
       {appts.map(item => {
-        if (item.date === date) {
+        if (item.date === date && item.filled === false) {
           return (
             <div key={item.id} onClick={()=>{openModal(item)}} className="book__card">
               <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>

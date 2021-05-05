@@ -6,10 +6,10 @@ import axios from 'axios';
 
 export default function PostSignup() {
 
-  const { currentUser } = useAuth();
+  const { currentUser, updateName } = useAuth();
   const history = useHistory()
 
-  function handleUpdate(e) {
+  async function handleUpdate(e) {
     e.preventDefault()
     const user = {
       id: currentUser.uid,
@@ -18,13 +18,19 @@ export default function PostSignup() {
       email: currentUser.email,
       phone: e.target.phone.value
     }
-    axios
+    try {
+      await updateName(user.fName)
+      axios
       .post('http://localhost:8070/client', user)
       .then(response => {
-        if(response.data === 200) {
+        console.log(response);
+        if(response.status === 200) {
           history.push('/book')
         }
       })
+    } catch {
+      // setError("Failed to create an account")
+    }
   }
   
   return (

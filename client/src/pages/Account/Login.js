@@ -20,10 +20,10 @@ export default function Login() {
     try {
       setError('')
       setLoading(true)
-      await login(e.target.email.value, e.target.password.value, e.target.name.value)
+      await login(e.target.email.value, e.target.password.value)
       history.push('/book')
     } catch {
-      setError("Failed to create an account")
+      setError("Failed to log in")
     }
     setLoading(false)
   }

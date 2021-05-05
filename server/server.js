@@ -15,9 +15,6 @@ app.get('/', (req, res) => {
 
 app.get('/appointments', async (req, res) => {
   const result = await prisma.appointment.findMany({
-    where: {
-      filled: false
-    },
     orderBy: {
       hour: 'asc'
     }

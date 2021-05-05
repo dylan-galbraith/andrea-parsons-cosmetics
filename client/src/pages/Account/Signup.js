@@ -21,7 +21,7 @@ export default function Signup() {
       return setError("Passwords do not match")
     }
 
-    if (!e.target.password.value || !e.target.email.value || !e.target.name.value) {
+    if (!e.target.password.value || !e.target.email.value ) {
       return setError("Please make sure all fields are filled out")
     }
 
@@ -29,7 +29,7 @@ export default function Signup() {
       setError('')
       setLoading(true)
       await signup(e.target.email.value, e.target.password.value)
-      history.push('/account')
+      history.push('/post-signup')
     } catch {
       setError("Failed to create an account")
     }

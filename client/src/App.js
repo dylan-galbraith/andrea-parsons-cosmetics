@@ -11,7 +11,7 @@ import Contact from './pages/Contact/Contact';
 import Book from './pages/Book/Book';
 import Signup from './pages/Account/Signup';
 import Login from './pages/Account/Login';
-import PostSignup from './pages/Account/Account';
+import PostSignup from './pages/Account/PostSignup';
 
 function App() {
   return (

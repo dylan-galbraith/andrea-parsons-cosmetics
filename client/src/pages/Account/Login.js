@@ -32,14 +32,13 @@ export default function Login() {
     history.push('/book')
   }
 
-  console.log(error);
-
   return (
     <main className="account">
       <h1 className="account__heading">Login</h1>
       <form className="account__form" onSubmit={handleLogin}>
         <input className="account__input" placeholder="Email" name="email" />
         <input className="account__input" placeholder="Password" name="password" type="password" />
+        <p className="account__login">{error}</p>
         <button className="account__button account__button--brown" disabled={loading}>LogIn</button>
         <p className="account__login">Already have an account? <Link className="account__login" to='/signup'>SignUp</Link></p>
       </form>

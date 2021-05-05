@@ -18,6 +18,9 @@ const customStyles = {
   }
 }
 
+const API_URL = process.env.REACT_APP_API_URL
+const API_KEY = process.env.REACT_APP_DB_KEY
+
 export default function Book() {
 
   const { currentUser, logout } = useAuth()
@@ -50,11 +53,11 @@ export default function Book() {
   useEffect(()=>{
     window.scrollTo(0,0)
     axios
-    .get(`http://localhost:8070/appointments`)
+    .get(`${API_URL}/appointments${API_KEY}`)
     .then(response => {
       let respAppts = response.data
       axios
-      .get(`${process.env.REACT_APP_API_URL}/client`)
+      .get(`${API_URL}/client/${API_KEY}`)
       .then(response => {
         if(response.status === 200) {
           setClients(response.data)
@@ -81,7 +84,7 @@ export default function Book() {
         comments: e.target.comments.value
       }
       axios
-        .put(`http://localhost:8070/appointments/${selectedAppt.id}`, client)
+        .put(`${API_URL}/appointments/${selectedAppt.id}/${API_KEY}`, client)
         .then(response => {
           if(response.status === 200) {
             setComplete(true)
@@ -101,12 +104,12 @@ export default function Book() {
         date: date
       }
       axios
-        .post(`http://localhost:8070/appointments`, newAppt)
+        .post(`${API_URL}/appointments/${API_KEY}`, newAppt)
         .then(response => {
           if(response.status === 200) {
             closeModal()
             axios
-              .get(`${process.env.REACT_APP_API_URL}/appointments`)
+              .get(`${API_URL}/appointments/${API_KEY}`)
               .then(response => {
                 if (response.status === 200) {
                   setAppts(response.data)
@@ -120,11 +123,11 @@ export default function Book() {
   function deleteAppt(id) {
     console.log(id);
     axios
-      .delete(`${process.env.REACT_APP_API_URL}/appointments/${id}`)
+      .delete(`${API_URL}/appointments/${id}/${API_KEY}`)
       .then(response => {
         if (response.status === 200) {
           axios
-          .get(`${process.env.REACT_APP_API_URL}/appointments`)
+          .get(`${API_URL}/appointments/${API_KEY}`)
           .then(response => {
             if (response.status === 200) {
               setAppts(response.data)
@@ -167,7 +170,6 @@ export default function Book() {
         
         {appts.map(item => {
           if (item.date === date) {
-            console.log(clients.find(client => client.id === item.clientId));
             return (
               <div key={item.id} className={item.filled ? "book__card book__card--filled" : "book__card"}>
                 <img onClick={()=>{deleteAppt(item.id)}} className="book__card__icon" src={deleteIcon} alt=""/>
@@ -179,13 +181,13 @@ export default function Book() {
                 {clients.map(client =>{
                   if (client.id === item.clientId) {
                     return (
-                      <div className="book__card__client">
+                      <div key={client.id} className="book__card__client">
                         <p className="book__card__text">Client: {client.firstName} {client.lastName}</p>
                         <p className="book__card__text">Email: {client.email}</p>
                         <p className="book__card__text">Phone: {client.phone}</p>
                       </div>
                     )
-                  } 
+                  } else return null 
                 } )}
               </div>
             )  

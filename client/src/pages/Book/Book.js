@@ -49,7 +49,15 @@ export default function Book() {
     axios
     .get(`http://localhost:8070/appointments`)
     .then(response => {
-      setAppts(response.data)
+      let respAppts = response.data
+      axios
+      .get(`${process.env.REACT_APP_API_URL}/client`)
+      .then(response => {
+        if(response.status === 200) {
+          setClients(response.data)
+          setAppts(respAppts)
+        }
+      })
     })
   }, [])
 
@@ -90,6 +98,9 @@ export default function Book() {
     }
   }
 
+  console.log(appts)
+  console.log(clients)
+
   if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) return (
     <main className="book">
       <h1 className="book__heading">Welcome Back Boss!</h1>
@@ -104,14 +115,25 @@ export default function Book() {
       
       {appts.map(item => {
         if (item.date === date) {
+          console.log(clients.find(client => client.id === item.clientId));
           return (
             <div key={item.id} onClick={()=>{openModal(item)}} className={item.filled ? "book__card book__card--filled" : "book__card"}>
               <p className="book__card__time">{item.filled ? "BOOKED" : ""}</p>
               <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
               <p className="book__card__text">Location: {item.location}</p>
-              <p className="book__card__text">{item.filled ? `Client: ${item.clientId}` : ""}</p>
               <p className="book__card__text">{item.filled ? `Service: ${item.services}` : ""}</p>
               <p className="book__card__text">{item.filled ? `Comments: ${item.comments ? item.comments : "N/A"}` : ""}</p>
+              {clients.map(client =>{
+                if (client.id === item.clientId) {
+                  return (
+                    <div className="book__card__client">
+                      <p className="book__card__text">Client: {client.firstName} {client.lastName}</p>
+                      <p className="book__card__text">Email: {client.email}</p>
+                      <p className="book__card__text">Phone: {client.phone}</p>
+                    </div>
+                  )
+                } 
+              } )}
             </div>
           )  
         } else return null

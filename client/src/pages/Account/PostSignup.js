@@ -21,7 +21,7 @@ export default function PostSignup() {
     try {
       await updateName(user.fName)
       axios
-      .post(`${process.env.REACT_APP_API_URL}/${process.env.REACT_APP_DB_KEY}`, user)
+      .post(`${process.env.REACT_APP_API_URL}/client/${process.env.REACT_APP_DB_KEY}`, user)
       .then(response => {
         console.log(response);
         if(response.status === 200) {

@@ -1,4 +1,5 @@
 @use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
 
 .contact {
   display: flex;
@@ -6,21 +7,28 @@
   align-items: center;
 
   &__first {
-    padding: 3rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   &__heading {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-bottom: 1rem;
     font-weight: 300;
+    text-align: center;
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 
   &__text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
+    @include desktop {
+      font-size: 1.5rem;
+    }
   }
 
   &__button {
@@ -51,7 +59,7 @@
     align-items: center;
     background-color: $secondary-background;
     width: 100%;
-    padding: 3rem;
+    padding: 1rem;
   }
 
   &__input {
@@ -60,10 +68,13 @@
     padding: 0.5rem;
     border-bottom: 1px solid $secondary-color;
     color: white;
-    width: 25rem;
+    width: 100%;
     margin: 0.5rem;
     &:focus {
       outline: none;
+    }
+    @include tablet {
+      width: 30rem;
     }
 
     &--textarea {

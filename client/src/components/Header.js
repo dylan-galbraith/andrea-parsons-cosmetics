@@ -14,7 +14,15 @@ export default function Header() {
     <div className="header">
       <img className="header__logo" src={logo} alt="logo" />
       <button onClick={toggleMenu} className="header__button">{open ? "CLOSE" : "MENU"}</button>
-      <nav className={open ? "header__nav" : "hidden"}>
+      <nav className="header__nav">
+        <NavLink className="header__nav__link" to='/' exact>HOME</NavLink>
+        <NavLink className="header__nav__link" to='/book'>BOOK</NavLink>
+        <NavLink className="header__nav__link" to='/services'>SERVICES</NavLink>
+        <NavLink className="header__nav__link" to='/about'>ABOUT</NavLink>
+        <NavLink className="header__nav__link" to='/contact'>CONTACT</NavLink>
+        <NavLink className="header__nav__link" to='/faq'>FAQ</NavLink>
+      </nav>
+      <nav className={open ? "header__nav--mobile" : "hidden"}>
         <NavLink onClick={toggleMenu} className="header__nav__link" to='/' exact>HOME</NavLink>
         <NavLink onClick={toggleMenu} className="header__nav__link" to='/book'>BOOK</NavLink>
         <NavLink onClick={toggleMenu} className="header__nav__link" to='/services'>SERVICES</NavLink>

@@ -18,19 +18,41 @@
 
   &__logo {
     width: 100%;
+    @include tablet {
+      width: 90vw;
+    }
+    @include desktop {
+      width: 60rem
+    }
   }
 
   &__button {
     @include button;
     width: 100%;
+    @include tablet {
+      display: none;
+    }
   }
 
   &__nav {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: none;
+    @include tablet {
+      width: 100%;
+      display: flex;
+      justify-content: center;  
+    }
+    @include desktop {
+      width: 60rem;
+      justify-content: space-between;
+    }
+
+    &--mobile {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+    }
 
     &__link {
       color: $primary-color;
@@ -39,8 +61,13 @@
       padding: 0.5rem;
       margin: 1rem;
       font-weight: 600;
-      &:hover {
-        border-bottom: 2px solid $primary-color;
+      @include tablet {
+        &:hover {
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+      @include desktop {
+        width: 100%;
       }
     }
   }
@@ -93,8 +120,8 @@
     display: flex;
     align-items: center;
     color: $primary-color;
-    padding: 1rem;
     text-decoration: none;
+    margin-bottom: 4rem;
 
     &__icon {
       height: 1.5rem;

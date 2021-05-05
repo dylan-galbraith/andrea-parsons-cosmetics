@@ -104,6 +104,13 @@ export default function Book() {
       .then(response => {
         if(response.status === 200) {
           closeModal()
+          axios
+            .get(`${process.env.REACT_APP_API_URL}/appointments`)
+            .then(response => {
+              if (response.status === 200) {
+                setAppts(response.data)
+              }
+            })
         }
       })
   }

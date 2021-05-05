@@ -24,7 +24,7 @@ model Appointment {
   date            String              @db.VarChar(255)
   filled          Boolean             @default(false)
   location        String              @db.VarChar(255)
-  services        String              @db.VarChar(255)
-  comments        String              @db.VarChar(255)
+  services        String?             @db.VarChar(255)
+  comments        String?             @db.VarChar(255)
   clientId        String?             @db.VarChar(255)  
 }

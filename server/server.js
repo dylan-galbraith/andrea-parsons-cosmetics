@@ -41,8 +41,9 @@ app.put('/appointments/:appointmentId', async (req, res) => {
 app.post('/appointments', async (req, res) => {
   const result = await prisma.appointment.create({
     data: {
-      hour: req.body.time,
-      location: req.body.location
+      hour: parseInt(req.body.time),
+      location: req.body.location,
+      date: req.body.date
     }
   })
   res.json(result)

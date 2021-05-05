@@ -1,24 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import './Account.scss'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 
-export default function Account() {
+export default function PostSignup() {
 
-  const { currentUser, logout } = useAuth();
-  const [error, setError] = useState('')
+  const { currentUser } = useAuth();
   const history = useHistory()
-
-  async function handleLogout(e) {
-    e.preventDefault();
-
-    try {
-      await logout()
-      history.pushState('/signup')
-    } catch {
-    }
-  }
 
   function handleUpdate(e) {
     e.preventDefault()
@@ -47,9 +36,7 @@ export default function Account() {
         <input className="account__input" name="email" value={currentUser.email}/>
         <input className="account__input" placeholder="Phone Number" name="phone" />
         <button className="account__button account__button--brown">Create</button>
-        <p className="account__login">{error}</p>
       </form>
-      <button onClick={handleLogout}>Logout</button>
     </main>
   )
 }

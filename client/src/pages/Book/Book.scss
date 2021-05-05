@@ -13,6 +13,21 @@
     text-align: center;
   }
 
+  &__notyou {
+    font-size: 0.8rem;
+  }
+
+  &__logout {
+    background-color: $primary-background;
+    border: none;
+    color: $primary-color;
+    text-decoration: underline;
+    font-size: 0.8rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__form {
     background-color: $secondary-background;
     color: white;

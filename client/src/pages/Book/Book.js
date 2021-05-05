@@ -17,7 +17,7 @@ const customStyles = {
 
 export default function Book() {
 
-  const { currentUser } = useAuth()
+  const { currentUser, logout } = useAuth()
   const [ appts, setAppts ] = useState([])
   const [ date, setDate ] = useState()
   const [ selectedAppt, setSelectedAppt ] = useState("")
@@ -79,6 +79,16 @@ export default function Book() {
     }
   }
 
+  async function handleLogout(e) {
+    e.preventDefault();
+
+    try {
+      await logout()
+      history.pushState('/signup')
+    } catch {
+    }
+  }
+
   return (
     <main className="book">
       <Modal
@@ -89,7 +99,8 @@ export default function Book() {
       >
         {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
       </Modal>
-      <h1 className="book__heading">Welcome {currentUser.displayName}!</h1>
+      <h1 className="book__heading">Hello {currentUser.displayName}!</h1>
+      <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
         <input className="book__input" type="date" name="date" />

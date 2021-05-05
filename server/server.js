@@ -38,6 +38,16 @@ app.put('/appointments/:appointmentId', async (req, res) => {
   res.json(result)
 })
 
+app.post('/appointments', async (req, res) => {
+  const result = await prisma.appointment.create({
+    data: {
+      hour: req.body.time,
+      location: req.body.location
+    }
+  })
+  res.json(result)
+})
+
 app.get('/client', async (req, res) => {
   const result = await prisma.client.findMany({})
   res.json(result)

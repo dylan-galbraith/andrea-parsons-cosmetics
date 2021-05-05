@@ -10,7 +10,6 @@ export default function Footer() {
         <input className="footer__input" placeholder="Enter your email" />
         <button className="footer__button">Subscribe!</button>
       </form>
-      <p className="footer__text">Don't forget to follow on Instagram</p>
       <a className="footer__instagram" href="https://www.instagram.com/cosmetic.nurse.ange/" target="_blank" rel="noopener noreferrer">
         <img className="footer__instagram__icon" src={instagram} alt="" />
         <p className="footer__instagram__handle">@cosmetic.nurse.ange</p>

@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 8070;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
+const API_KEY = process.env.API_KEY
+
+app.get(`/${API_KEY}`, (req, res) => {
   res.send("Working")
 })
 
@@ -22,7 +24,7 @@ app.get('/appointments', async (req, res) => {
   res.json(result)
 })
 
-app.put('/appointments/:appointmentId', async (req, res) => {
+app.put(`/appointments/:appointmentId/${API_KEY}`, async (req, res) => {
   console.log(req.body);
   const result = await prisma.appointment.update({
     where: {
@@ -38,7 +40,7 @@ app.put('/appointments/:appointmentId', async (req, res) => {
   res.json(result)
 })
 
-app.post('/appointments', async (req, res) => {
+app.post(`/appointments/${API_KEY}`, async (req, res) => {
   const result = await prisma.appointment.create({
     data: {
       hour: parseInt(req.body.time),
@@ -49,7 +51,7 @@ app.post('/appointments', async (req, res) => {
   res.json(result)
 })
 
-app.delete('/appointments/:apptId', async (req, res) => {
+app.delete(`/appointments/:apptId/${API_KEY}`, async (req, res) => {
   const result = await prisma.appointment.delete({
     where: {
       id: parseInt(req.params.apptId)
@@ -58,12 +60,12 @@ app.delete('/appointments/:apptId', async (req, res) => {
   res.json(result)
 })
 
-app.get('/client', async (req, res) => {
+app.get(`/client/${API_KEY}`, async (req, res) => {
   const result = await prisma.client.findMany({})
   res.json(result)
 })
 
-app.post('/client', async (req, res) => {
+app.post(`/client/${API_KEY}`, async (req, res) => {
   const result = await prisma.client.create({
     data: {
       id: req.body.id,

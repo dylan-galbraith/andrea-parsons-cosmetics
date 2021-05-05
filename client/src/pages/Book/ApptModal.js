@@ -17,6 +17,7 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         <p className="book__modal__info">{selectedAppt.location}</p>
       </div>
       <form onSubmit={handleConfirmation} className="book__modal__form">
+        <p className="book__modal__label">Service:</p>
         <select name="service" className="book__modal__select">
           <option value="">--Select Service--</option>
           <option value="Option 1">Option 1</option>

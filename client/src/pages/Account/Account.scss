@@ -32,6 +32,9 @@
     &:focus{
       outline: none;
     }
+    @include tablet {
+      width: 30rem;
+    }
   }
 
   &__button {

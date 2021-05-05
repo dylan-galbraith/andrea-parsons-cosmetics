@@ -8,6 +8,7 @@ import CompleteModal from './CompleteModal';
 import { useHistory } from 'react-router-dom'
 import AddAppt from './AddAppt';
 import AddModal from './AddModal';
+import deleteIcon from '../../assets/icons/delete-icon.svg'
 
 Modal.setAppElement(document.getElementById('root'))
 
@@ -23,7 +24,7 @@ export default function Book() {
   const [ appts, setAppts ] = useState([])
   const [ date, setDate ] = useState()
   const [ selectedAppt, setSelectedAppt ] = useState("")
-  const [modalIsOpen,setIsOpen] = useState(false);
+  const [ modalIsOpen,setIsOpen ] = useState(false);
   const [ error, setError ] = useState()
   const [ complete, setComplete ] = useState(false)
   const [ clients, setClients ] = useState()
@@ -93,29 +94,46 @@ export default function Book() {
     e.preventDefault();
     if (!e.target.time.value || !e.target.location.value) {
       setError("Please select a time and location")
+    } else {
+      const newAppt = {
+        location: e.target.location.value,
+        time: e.target.time.value,
+        date: date
+      }
+      axios
+        .post(`http://localhost:8070/appointments`, newAppt)
+        .then(response => {
+          if(response.status === 200) {
+            closeModal()
+            axios
+              .get(`${process.env.REACT_APP_API_URL}/appointments`)
+              .then(response => {
+                if (response.status === 200) {
+                  setAppts(response.data)
+                }
+              })
+          }
+        })
     }
-    const newAppt = {
-      location: e.target.location.value,
-      time: e.target.time.value,
-      date: date
-    }
+  }
+
+  function deleteAppt(id) {
+    console.log(id);
     axios
-      .post(`http://localhost:8070/appointments`, newAppt)
+      .delete(`${process.env.REACT_APP_API_URL}/appointments/${id}`)
       .then(response => {
-        if(response.status === 200) {
-          closeModal()
+        if (response.status === 200) {
           axios
-            .get(`${process.env.REACT_APP_API_URL}/appointments`)
-            .then(response => {
-              if (response.status === 200) {
-                setAppts(response.data)
-              }
-            })
-        }
+          .get(`${process.env.REACT_APP_API_URL}/appointments`)
+          .then(response => {
+            if (response.status === 200) {
+              setAppts(response.data)
+            }
+          })
+          }
       })
   }
   
-
   async function handleLogout(e) {
     e.preventDefault();
 
@@ -151,7 +169,8 @@ export default function Book() {
           if (item.date === date) {
             console.log(clients.find(client => client.id === item.clientId));
             return (
-              <div key={item.id} onClick={()=>{openModal(item)}} className={item.filled ? "book__card book__card--filled" : "book__card"}>
+              <div key={item.id} className={item.filled ? "book__card book__card--filled" : "book__card"}>
+                <img onClick={()=>{deleteAppt(item.id)}} className="book__card__icon" src={deleteIcon} alt=""/>
                 <p className="book__card__time">{item.filled ? "BOOKED" : ""}</p>
                 <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
                 <p className="book__card__text">Location: {item.location}</p>

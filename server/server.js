@@ -49,6 +49,15 @@ app.post('/appointments', async (req, res) => {
   res.json(result)
 })
 
+app.delete('/appointments/:apptId', async (req, res) => {
+  const result = await prisma.appointment.delete({
+    where: {
+      id: parseInt(req.params.apptId)
+    }
+  })
+  res.json(result)
+})
+
 app.get('/client', async (req, res) => {
   const result = await prisma.client.findMany({})
   res.json(result)

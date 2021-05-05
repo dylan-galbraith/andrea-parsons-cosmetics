@@ -52,6 +52,7 @@
   }
 
   &__card {
+    position: relative;
     background-color: $primary-color;
     color: white;
     width: 30rem;
@@ -86,6 +87,12 @@
       border-top: 1px solid $secondary-color;
       margin-top: 1rem;
       padding-top: 1rem;
+    }
+
+    &__icon {
+      height: 1rem;
+      position: absolute;
+      right: 1rem;
     }
   }
 

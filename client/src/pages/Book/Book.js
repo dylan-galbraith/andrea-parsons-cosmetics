@@ -3,6 +3,9 @@ import Modal from 'react-modal';
 import './Book.scss'
 import { useAuth } from '../../contexts/AuthContext'
 import axios from 'axios'
+import ApptModal from './ApptModal';
+import CompleteModal from './CompleteModal';
+import { useHistory } from 'react-router-dom'
 
 Modal.setAppElement(document.getElementById('root'))
 
@@ -20,6 +23,9 @@ export default function Book() {
   const [ selectedAppt, setSelectedAppt ] = useState("")
   const [modalIsOpen,setIsOpen] = useState(false);
   const [ error, setError ] = useState()
+  const [ complete, setComplete ] = useState(false)
+
+  const history = useHistory()
 
   function openModal(item) {
     setIsOpen(true);
@@ -29,6 +35,12 @@ export default function Book() {
   function closeModal(){
     setIsOpen(false);
     setError();
+  }
+
+  function closeModalRefresh(){
+    setIsOpen(false);
+    setError();
+    history.go()
   }
   
   useEffect(()=>{
@@ -60,7 +72,9 @@ export default function Book() {
       axios
         .put(`http://localhost:8070/appointments/${selectedAppt.id}`, client)
         .then(response => {
-          console.log(response);
+          if(response.status === 200) {
+            setComplete(true)
+          }
         })
     }
   }
@@ -73,32 +87,7 @@ export default function Book() {
         className="book__modal"
         style={customStyles}
       >
-        <div className="book__card">
-          <h2 className="book__modal__heading">Confirm Booking</h2>
-          <div className="book__modal__section">
-            <p className="book__modal__label">Date:</p>
-            <p className="book__modal__info">{date}</p>
-          </div>
-          <div className="book__modal__section">
-            <p className="book__modal__label">Time:</p>
-            <p className="book__modal__info">{selectedAppt.hour>12 ? selectedAppt.hour - 12 : selectedAppt.hour}:00{selectedAppt.hour>11 ? "pm" : "am"} - {selectedAppt.hour>11 ? selectedAppt.hour - 11 : selectedAppt.hour + 1}:00{selectedAppt.hour>10 ? "pm" : "am"}</p>
-          </div>
-          <div className="book__modal__section">
-            <p className="book__modal__label">Location:</p>
-            <p className="book__modal__info">{selectedAppt.location}</p>
-          </div>
-          <form onSubmit={handleConfirmation} className="book__modal__form">
-            <select name="service" className="book__modal__select">
-              <option value="">--Select Service--</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
-            <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
-            <p>{error}</p>
-            <button className="book__modal__button">BOOK</button>
-          </form>
-          <button onClick={closeModal} className="book__modal__button book__modal__button--cancel">CANCEL</button>
-        </div>
+        {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
       </Modal>
       <h1 className="book__heading">Welcome {currentUser.displayName}!</h1>
       <form className="book__form" onSubmit={handleDate}>
@@ -110,7 +99,7 @@ export default function Book() {
       {appts.map(item => {
         if (item.date === date) {
           return (
-            <div onClick={()=>{openModal(item)}} className="book__card">
+            <div key={item.id} onClick={()=>{openModal(item)}} className="book__card">
               <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
               <p className="book__card__text">Location: {item.location}</p>
             </div>

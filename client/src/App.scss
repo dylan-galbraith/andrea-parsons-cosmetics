@@ -15,9 +15,7 @@
   width: 100%;
   padding: 1rem 0;
   box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
-  position: fixed;
   background-color: $primary-background;
-  z-index: 10;
 
   &__line {
     position: absolute;
@@ -32,7 +30,6 @@
 
   &__logo {
     background-color: $primary-background;
-    z-index: 1;
     padding: 0 1rem;
   }
 
@@ -54,7 +51,7 @@
     width: 75%;
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
 
     &__link {
       color: $primary-color;

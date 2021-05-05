@@ -15,7 +15,7 @@ app.get(`/${API_KEY}`, (req, res) => {
   res.send("Working")
 })
 
-app.get('/appointments', async (req, res) => {
+app.get(`/appointments/${API_KEY}`, async (req, res) => {
   const result = await prisma.appointment.findMany({
     orderBy: {
       hour: 'asc'

@@ -31,6 +31,7 @@ export default function Book() {
   const [ error, setError ] = useState()
   const [ complete, setComplete ] = useState(false)
   const [ clients, setClients ] = useState()
+  const [ avail, setAvail ] = useState([])
 
   const history = useHistory()
 
@@ -69,7 +70,8 @@ export default function Book() {
 
   function handleDate(e) {
     e.preventDefault();
-    setDate(e.target.date.value)
+      setDate(e.target.date.value)
+      setAvail(appts.filter(item => item.date === e.target.date.value && !item.filled))
   }
 
   function handleConfirmation(e) {
@@ -121,7 +123,6 @@ export default function Book() {
   }
 
   function deleteAppt(id) {
-    console.log(id);
     axios
       .delete(`${API_URL}/appointments/${id}/${API_KEY}`)
       .then(response => {
@@ -146,7 +147,7 @@ export default function Book() {
     } catch {
     }
   }
-
+  
   if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) {
     return (
       <main className="book">
@@ -216,17 +217,19 @@ export default function Book() {
         <input className="book__input" type="date" name="date" />
         <button className="book__button book__button--brown">Find</button>
       </form>
-      
-      {appts.map(item => {
-        if (item.date === date && item.filled === false) {
+      {avail.length === 0 && date ?            
+        <div className="book__card">
+          <p className="book_card_time">Sorry, there are no available appointments on this day. Please check another day.</p>
+        </div> : avail.map(item => {
           return (
             <div key={item.id} onClick={()=>{openModal(item)}} className="book__card">
               <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
               <p className="book__card__text">Location: {item.location}</p>
             </div>
           )  
-        } else return null
-      })}
+        }
+      )
+      }
     </main>
   )
 }

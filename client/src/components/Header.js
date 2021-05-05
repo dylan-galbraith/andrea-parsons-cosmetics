@@ -1,11 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import line from '../assets/images/line.svg'
 
 export default function Header() {
   return (
     <div className="header">
-      <img className="header__line" src={line} alt="" />
       <div className="header__logo">
         <h1 className="header__heading">Andrea Parsons</h1>
         <h2 className="header__subheading">cosmetic nurse injector</h2>

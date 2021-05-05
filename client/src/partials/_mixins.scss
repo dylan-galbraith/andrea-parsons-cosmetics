@@ -33,3 +33,21 @@
     letter-spacing: 0.3rem;
   }
 }
+
+@mixin input {
+  background-color: $secondary-background;
+  border: none;
+  padding: 0.5rem;
+  border-bottom: 1px solid $secondary-color;
+  color: $secondary-color;
+  width: 100%;
+  margin: 0.5rem;
+  border-radius: 0;
+  &:focus {
+    outline: none;
+  }
+  @include tablet {
+    width: 30rem;
+  }
+}
+

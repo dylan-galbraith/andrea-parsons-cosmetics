@@ -62,12 +62,12 @@
       margin: 1rem;
       font-weight: 600;
       @include tablet {
+        width: 100%;
         &:hover {
           border-bottom: 2px solid $primary-color;
         }
       }
       @include desktop {
-        width: 100%;
         font-size: 1.2rem;
       }
     }
@@ -108,15 +108,8 @@
   }
 
   &__input {
+    @include input;
     background-color: $footer-background;
-    border: none;
-    padding: 0.5rem;
-    border-bottom: 1px solid $secondary-background;
-    color: white;
-    width: 100%;
-    &:focus {
-      outline: none;
-    }
   }
 
   &__button {

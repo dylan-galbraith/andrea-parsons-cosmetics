@@ -22,19 +22,7 @@
   }
 
   &__input {
-    color: $secondary-color;
-    background-color: $secondary-background;
-    border: none;
-    border-bottom: 1px solid $secondary-color;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-    &:focus{
-      outline: none;
-    }
-    @include tablet {
-      width: 30rem;
-    }
+    @include input;
   }
 
   &__button {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className="header">
-      <img className="header__logo" src={logo} alt="logo" />
+      <Link to='/'><img className="header__logo" src={logo} alt="logo" /></Link>
       <button onClick={toggleMenu} className="header__button">{open ? "CLOSE" : "MENU"}</button>
       <nav className="header__nav">
         <NavLink className="header__nav__link" to='/' exact>HOME</NavLink>

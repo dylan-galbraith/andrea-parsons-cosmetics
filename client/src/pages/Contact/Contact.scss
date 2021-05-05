@@ -32,25 +32,7 @@
   }
 
   &__button {
-    background-color: $secondary-background;
-    border: none;
-    padding: 0.5rem;
-    color: white;
-    width: 15rem;
-    box-shadow: 3px 3px 6px rgb(0, 0, 0, 0.2);
-    margin: 1rem;
-    text-align: center;
-    text-decoration: none;
-    &:hover {
-      cursor: pointer;
-    }
-    &:focus {
-      outline: none;
-    }    
-    &--brown {
-      background-color: $primary-color;
-      letter-spacing: 0.3rem;
-    }
+    @include button;
   }
 
   &__form {
@@ -63,19 +45,7 @@
   }
 
   &__input {
-    background-color: $secondary-background;
-    border: none;
-    padding: 0.5rem;
-    border-bottom: 1px solid $secondary-color;
-    color: white;
-    width: 100%;
-    margin: 0.5rem;
-    &:focus {
-      outline: none;
-    }
-    @include tablet {
-      width: 30rem;
-    }
+    @include input;
 
     &--textarea {
       resize: none;

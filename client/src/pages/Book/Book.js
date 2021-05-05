@@ -53,7 +53,7 @@ export default function Book() {
   useEffect(()=>{
     window.scrollTo(0,0)
     axios
-    .get(`${API_URL}/appointments${API_KEY}`)
+    .get(`${API_URL}/appointments/${API_KEY}`)
     .then(response => {
       let respAppts = response.data
       axios

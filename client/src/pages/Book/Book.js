@@ -24,6 +24,7 @@ export default function Book() {
   const [modalIsOpen,setIsOpen] = useState(false);
   const [ error, setError ] = useState()
   const [ complete, setComplete ] = useState(false)
+  const [ clients, setClients ] = useState()
 
   const history = useHistory()
 
@@ -91,7 +92,7 @@ export default function Book() {
 
   if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) return (
     <main className="book">
-      <h1 className="book__heading">Hello Boss!</h1>
+      <h1 className="book__heading">Welcome Back Boss!</h1>
       <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view/add time slots:</p>
@@ -105,7 +106,7 @@ export default function Book() {
         if (item.date === date) {
           return (
             <div key={item.id} onClick={()=>{openModal(item)}} className={item.filled ? "book__card book__card--filled" : "book__card"}>
-              <p className="book__card__time">{item.filled ? "FILLED" : ""}</p>
+              <p className="book__card__time">{item.filled ? "BOOKED" : ""}</p>
               <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
               <p className="book__card__text">Location: {item.location}</p>
               <p className="book__card__text">{item.filled ? `Client: ${item.clientId}` : ""}</p>

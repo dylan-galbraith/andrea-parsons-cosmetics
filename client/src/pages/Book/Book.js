@@ -163,10 +163,8 @@ export default function Book() {
         <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
         <form className="book__form" onSubmit={handleDate}>
           <p className="book__text">Please select a date to view/add time slots:</p>
-          <div>
             <input className="book__input" type="date" name="date" />
             <button className="book__button book__button--brown">Find</button>
-          </div>
         </form>
         
         {appts.map(item => {
@@ -177,8 +175,8 @@ export default function Book() {
                 <p className="book__card__time">{item.filled ? "BOOKED" : ""}</p>
                 <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
                 <p className="book__card__text">Location: {item.location}</p>
-                <p className="book__card__text">{item.filled ? `Service: ${item.services}` : ""}</p>
-                <p className="book__card__text">{item.filled ? `Comments: ${item.comments ? item.comments : "N/A"}` : ""}</p>
+                <p className={item.filled ? "book__card__text" : "hidden"}>Service: {item.services}</p>
+                <p className={item.filled ? "book__card__text" : "hidden"}>Comments: {item.comments}</p>
                 {clients.map(client =>{
                   if (client.id === item.clientId) {
                     return (

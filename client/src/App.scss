@@ -68,6 +68,7 @@
       }
       @include desktop {
         width: 100%;
+        font-size: 1.2rem;
       }
     }
   }
@@ -98,6 +99,12 @@
     align-items: center;
     width: 100%;
     padding: 1rem 0;
+    @include tablet {
+      width: 30rem;
+    }
+    @include desktop {
+      width: 30rem;
+    }
   }
 
   &__input {
@@ -141,7 +148,9 @@
 .active {
   border-bottom: 2px solid $secondary-background;
   color: $secondary-background;
-  &:hover {
-    border-bottom: 2px solid $secondary-background;
+  @include tablet {
+    &:hover {
+      border-bottom: 2px solid $secondary-background;
+    }
   }
 }

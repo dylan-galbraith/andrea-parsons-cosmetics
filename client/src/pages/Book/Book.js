@@ -70,8 +70,8 @@ export default function Book() {
 
   function handleDate(e) {
     e.preventDefault();
-      setDate(e.target.date.value)
-      setAvail(appts.filter(item => item.date === e.target.date.value && !item.filled))
+      setDate(e.target.value)
+      setAvail(appts.filter(item => item.date === e.target.value && !item.filled))
   }
 
   function handleConfirmation(e) {
@@ -163,8 +163,7 @@ export default function Book() {
         <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
         <form className="book__form" onSubmit={handleDate}>
           <p className="book__text">Please select a date to view/add time slots:</p>
-            <input className="book__input" type="date" name="date" />
-            <button className="book__button book__button--brown">Find</button>
+          <input className="book__input" type="date" name="date" onChange={handleDate}/>
         </form>
         
         {appts.map(item => {
@@ -212,8 +211,7 @@ export default function Book() {
       <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
-        <input className="book__input" type="date" name="date" />
-        <button className="book__button book__button--brown">Find</button>
+        <input className="book__input" type="date" name="date" onChange={handleDate}/>
       </form>
       {avail.length === 0 && date ?            
         <div className="book__card">

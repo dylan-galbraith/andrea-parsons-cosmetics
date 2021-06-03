@@ -14,15 +14,21 @@
   align-items: center;
   width: 100%;
   padding: 1rem 1rem 0;
-  box-shadow: 0 3px 6px rgb(0, 0, 0, 0.2);
+  // box-shadow: 0 3px 3px rgb(0, 0, 0, 0.1);
+  @include desktop {
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: center;
+  }
 
   &__logo {
     width: 100%;
     @include tablet {
-      width: 90vw;
+      width: 25rem;
     }
     @include desktop {
-      width: 60rem
+      width: 25rem;
+      margin-right: 2rem;
     }
   }
 
@@ -37,12 +43,12 @@
   &__nav {
     display: none;
     @include tablet {
-      width: 100%;
+      width: 50rem;
       display: flex;
       justify-content: center;  
     }
     @include desktop {
-      width: 60rem;
+      width: 50rem;
       justify-content: space-between;
     }
 
@@ -63,12 +69,16 @@
       font-weight: 600;
       @include tablet {
         width: 100%;
+        font-weight: 400;
+        margin-top: 0;
         &:hover {
+          font-weight: 600;
           border-bottom: 2px solid $primary-color;
         }
       }
       @include desktop {
         font-size: 1.2rem;
+        margin-top: 1rem;
       }
     }
   }
@@ -141,9 +151,5 @@
 .active {
   border-bottom: 2px solid $secondary-background;
   color: $secondary-background;
-  @include tablet {
-    &:hover {
-      border-bottom: 2px solid $secondary-background;
-    }
-  }
+  font-weight: 600;
 }

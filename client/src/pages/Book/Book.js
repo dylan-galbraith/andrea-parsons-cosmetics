@@ -35,6 +35,24 @@ export default function Book() {
 
   const history = useHistory()
 
+  function minDate() {
+    const today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth();
+
+    if (day < 10) {
+      day = `0${day.toString()}`
+    }
+    if (month < 10) {
+      month = month+1
+      if (month < 10) {
+        month = `0${month.toString()}`
+      }
+    }
+    const minDate = today.getFullYear() + "-" + month + "-" + day;  
+    return minDate
+  }
+
   function openModal(item) {
     setIsOpen(true);
     setSelectedAppt(item)
@@ -207,11 +225,12 @@ export default function Book() {
       >
         {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
       </Modal>
-      <h1 className="book__heading">Hello {currentUser.displayName}!</h1>
+      <h1 className="book__heading">Book Your Appointment</h1>
+      <h3 className="book__welcome">Hello {currentUser.displayName}!</h3>
       <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
-        <input className="book__input" type="date" name="date" onChange={handleDate}/>
+        <input className="book__input" type="date" min={minDate()} name="date" onChange={handleDate}/>
       </form>
       {avail.length === 0 && date ?            
         <div className="book__card">

@@ -9,6 +9,7 @@
     object-position: 0 -100px;
     @include desktop {
       object-position: 0 -400px;
+      height: 100vh;
     }
   }
 }

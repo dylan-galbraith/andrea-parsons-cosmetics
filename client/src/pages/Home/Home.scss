@@ -1,5 +1,14 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
 .home {
   &__hero {
-    max-width: 100vw;
+    width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+    object-position: 0 -100px;
+    @include desktop {
+      object-position: 0 -400px;
+    }
   }
 }

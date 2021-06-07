@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import heroImage from '../../assets/images/ap-dog-1.jpg'
+import heroImage from '../../assets/images/image1.jpeg'
 import './Home.scss'
 
 export default function Home() {

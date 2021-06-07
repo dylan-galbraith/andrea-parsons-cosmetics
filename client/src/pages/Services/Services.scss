@@ -26,11 +26,17 @@
 
   &--last {
     border: none;
+    padding: 3rem 0 5rem;
+    flex-direction: column;
   }
 
   &__title {
     font-size: 2rem;
     font-weight: 200;
+
+    &--last {
+      padding: 1rem;
+    }
   }
   
   &__bio {
@@ -40,5 +46,9 @@
   &__expect {
     padding: 1rem 0;
     font-size: 1.2rem;
+  }
+
+  &__link {
+    color: $primary-color;
   }
 }

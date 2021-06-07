@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './Services.scss'
 
 export default function Services() {
@@ -19,7 +20,7 @@ export default function Services() {
           <p className="service__desc">Botox is a very safe procedure that is FDA approved. The needles used for botox are actually quite tiny, which makes the procedure relatively painless (although pain is subjective-so this can differ from client to client). The procedure is fairly quick and should only take a maximum of 15 minutes per area of the face. </p>
         </div>
       </div>
-      <div className="service service--last">
+      <div className="service">
         <h3 className="service__title">Dermal Fillers</h3>
         <div className="service__bio">
           <p className="service__expect">About:</p>
@@ -27,6 +28,10 @@ export default function Services() {
           <p className="service__expect">What to Expect:</p>
           <p className="service__desc">A typical appointment for filler can range from 45-75 minutes. A numbing agent is applied to assist in making the procedure as comfortable as possible. Together we will collaborate on finding the best option for you and your face! </p>
         </div>
+      </div>
+      <div className="service service--last">
+        <h3 className="service__title service__title--last">Getting ready for your appointment?</h3>
+        <p className="service__desc">Find out what you need to know <Link className="service__link" to='/faq'>here!</Link></p>
       </div>
     </main>
   )

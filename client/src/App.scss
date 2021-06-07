@@ -14,10 +14,13 @@
   align-items: center;
   width: 100%;
   padding: 1rem 1rem 0;
+  background-color: white;
+  position: fixed;
+  box-shadow: 0 10px 20px white;
   @include desktop {
     flex-direction: row;
-    padding: 1rem;
-    justify-content: center;
+    padding: 0.5rem 5rem;
+    justify-content: space-between;
   }
 
   &__logo {
@@ -47,7 +50,7 @@
       justify-content: center;  
     }
     @include desktop {
-      width: 50rem;
+      width: fit-content;
       justify-content: space-between;
     }
 
@@ -63,8 +66,8 @@
       color: $primary-color;
       text-decoration: none;
       text-align: center;
-      padding: 0.5rem;
-      margin: 1rem;
+      // padding: 0.3rem;
+      margin: 1rem 0.7rem;
       font-weight: 600;
       @include tablet {
         width: 100%;
@@ -72,11 +75,11 @@
         margin-top: 0;
         &:hover {
           font-weight: 600;
-          border-bottom: 2px solid $primary-color;
+          border-bottom: 1px solid $primary-color;
         }
       }
       @include desktop {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         margin-top: 1rem;
       }
     }
@@ -148,10 +151,10 @@
 }
 
 .active {
-  border-bottom: 2px solid $secondary-background;
+  border-bottom: 1px solid $secondary-background;
   color: $secondary-background;
   font-weight: 600;
   &:hover {
-    border-bottom: 2px solid $secondary-background;
+    border-bottom: 1px solid $secondary-background;
   }
 }

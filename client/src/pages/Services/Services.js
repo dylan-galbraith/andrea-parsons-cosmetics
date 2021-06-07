@@ -9,7 +9,7 @@ export default function Services() {
 
   return (
     <main className="services">
-      {/* <h1 className="services__heading">Services</h1> */}
+      <h1 className="services__heading">Services</h1>
       <div className="service">
         <h3 className="service__title">Botox</h3>
         <div className="service__bio">

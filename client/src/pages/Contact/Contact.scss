@@ -5,29 +5,55 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 7rem;
 
   &__first {
     padding: 1rem;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    width: 60rem;
+  }
+
+  &__bio {
+    width: 50%;
+    margin-right: 2rem;
   }
 
   &__heading {
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
-    font-weight: 300;
+    font-size: 3.5rem;
+    font-weight: 200;
     text-align: center;
-    @include desktop {
-      font-size: 2rem;
-    }
+    margin-bottom: 3rem;
   }
 
   &__text {
     font-size: 1.2rem;
     font-weight: 300;
+    text-align: center;
     @include desktop {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      line-height: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__image {
+    display: none;
+    @include tablet {
+      display: initial;
+      width: 25rem;
+      height: 25rem;
+      object-fit: cover;
+    }
+
+    &--mobile {
+      width: 100%;
+      height: 20rem;
+      object-fit: cover; 
+      object-position: center;
+      @include tablet {
+        display: none;
+      }
     }
   }
 

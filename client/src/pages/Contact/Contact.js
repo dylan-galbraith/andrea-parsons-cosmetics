@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './Contact.scss'
+import headshot from '../../assets/images/image7.jpeg'
 
 export default function Contact() {
 
@@ -10,13 +11,12 @@ export default function Contact() {
   return (
     <main className="contact">
       <div className="contact__first">
-        <p className="contact__heading">Still not sure if this is right for you?</p>
-        <p className="contact__heading">Can’t decide which services are best for you?</p>
-        <p className="contact__text">Feel free to contact me by</p>
-        <a className="contact__button" href="mailto:andrea-parsons@hotmail.com">Email</a>
-        <p className="contact__text">Or connect with me through</p>
-        <a className="contact__button" href="https://www.instagram.com/cosmetic.nurse.ange/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <p className="contact__text">Or fill out the form below!</p>
+        <div className="contact__bio">
+          <img className="contact__image--mobile" src={headshot} alt=""/>
+          <h1 className="contact__heading">Contact Me</h1>
+          <p className="contact__text">Please feel free to fill out the form below with any questions or concerns you may have, and I will get back to you as soon as possible!</p>
+        </div>
+        <img className="contact__image" src={headshot} alt=""/>
       </div>
       <form className="contact__form">
         <input className="contact__input" placeholder="First Name" />

@@ -225,7 +225,7 @@ export default function Book() {
       >
         {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
       </Modal>
-      <h1 className="book__heading">Book Your Appointment</h1>
+      <h1 className="book__heading">Book Your Next Appointment</h1>
       <h3 className="book__welcome">Hello {currentUser.displayName}!</h3>
       <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>

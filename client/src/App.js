@@ -13,6 +13,7 @@ import Signup from './pages/Account/Signup';
 import Login from './pages/Account/Login';
 import PostSignup from './pages/Account/PostSignup';
 import Services from './pages/Services/Services';
+import Faq from './pages/Faq/Faq';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
             <Route path='/services' component={Services} />
+            <Route path='/faq' component={Faq} />
             <PrivateRoute path='/post-signup' component={PostSignup} />
             <PrivateRoute path='/book' component={Book} />
             <Route path='/signup' component={Signup} />

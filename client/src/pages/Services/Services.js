@@ -12,6 +12,13 @@ export default function Services() {
   return (
     <main className="services">
       <h1 className="services__heading">Services</h1>
+      <div className="service service--last">
+        <div className="service__faq">
+          <h3 className="service__title service__title--last">Getting ready for your appointment?</h3>
+          <p className="service__desc">Find out what you need to know <Link className="service__link" to='/faq'>here!</Link></p>
+        </div>
+        <img className="service__image" src={headshot} alt="" />
+      </div>
       <div className="service">
         <h3 className="service__title">Botox</h3>
         <div className="service__bio">
@@ -29,13 +36,6 @@ export default function Services() {
           <p className="service__expect">What to Expect:</p>
           <p className="service__desc">A typical appointment for filler can range from 45-75 minutes. A numbing agent is applied to assist in making the procedure as comfortable as possible. Together we will collaborate on finding the best option for you and your face! </p>
         </div>
-      </div>
-      <div className="service service--last">
-        <div className="service__faq">
-          <h3 className="service__title service__title--last">Getting ready for your appointment?</h3>
-          <p className="service__desc">Find out what you need to know <Link className="service__link" to='/faq'>here!</Link></p>
-        </div>
-        <img className="service__image" src={headshot} alt="" />
       </div>
     </main>
   )

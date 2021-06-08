@@ -1,19 +1,20 @@
 import React from 'react'
 import instagram from '../assets/images/instagram.svg'
+import logo from '../assets/images/logo-white.svg'
 
 export default function Footer() {
   return (
     <div className="footer">
-      <h4 className="footer__heading">Don't miss out on any updates!</h4>
-      <p className="footer__subheading">Subscribe to our mailing list</p>
-      <form className="footer__form">
-        <input className="footer__input" placeholder="Enter your email" />
-        <button className="footer__button">Subscribe!</button>
-      </form>
-      <a className="footer__instagram" href="https://www.instagram.com/cosmetic.nurse.ange/" target="_blank" rel="noopener noreferrer">
-        <img className="footer__instagram__icon" src={instagram} alt="" />
-        <p className="footer__instagram__handle">@cosmetic.nurse.ange</p>
-      </a>
+      <div className="footer__info">
+        <p className="footer__heading">Contact</p>
+        <a className="footer__link" href="tel:+14165756076">(416) 575-6076</a>
+        <a className="footer__link" href="mailto:andrea-parsons@hotmail.com">andrea-parsons@hotmail.com</a>
+        <a href="https://www.instagram.com/cosmetic.nurse.ange/" target="_blank" rel="noopener noreferrer">
+          <img className="footer__instagram" src={instagram} alt="" />
+        </a>
+        <p className="footer__link">Located in North London, ON</p>
+      </div>
+      <img className="footer__logo" src={logo} alt="logo"/>
     </div>
   )
 }

@@ -6,7 +6,7 @@ export default function AddModal({ closeModal, error, addAppt }) {
       <form onSubmit={addAppt} className="book__modal__form">
       <select name="location" className="book__modal__select">
         <option value="">--Select Location--</option>
-        <option value="London, ON">London, ON</option>
+        <option value="North London, ON">North London, ON</option>
         <option value="Pickering, ON">Pickering, ON</option>
       </select>
       <select name="time" className="book__modal__select">

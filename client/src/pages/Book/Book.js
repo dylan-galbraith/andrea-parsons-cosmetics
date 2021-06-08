@@ -49,7 +49,7 @@ export default function Book() {
         month = `0${month.toString()}`
       }
     }
-    const minDate = today.getFullYear() + "-" + month + "-" + day;  
+    const minDate = today.getFullYear() + "-" + month + "-" + day; 
     return minDate
   }
 
@@ -81,6 +81,7 @@ export default function Book() {
         if(response.status === 200) {
           setClients(response.data)
           setAppts(respAppts)
+          setDate(minDate())
         }
       })
     })
@@ -230,7 +231,7 @@ export default function Book() {
       <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
-        <input className="book__input" type="date" min={minDate()} name="date" onChange={handleDate}/>
+        <input className="book__input" type="date" min={minDate()} name="date" onChange={handleDate} value={date}/>
       </form>
       {avail.length === 0 && date ?            
         <div className="book__card">

@@ -20,8 +20,8 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         <p className="book__modal__label">Service:</p>
         <select name="service" className="book__modal__select">
           <option value="">--Select Service--</option>
-          <option value="Option 1">Option 1</option>
-          <option value="Option 2">Option 2</option>
+          <option value="Botox">Botox</option>
+          <option value="Derma Fillers">Derma Fillers</option>
         </select>
         <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
         <p>{error}</p>

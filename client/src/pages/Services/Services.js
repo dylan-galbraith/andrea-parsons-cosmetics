@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Services.scss'
+import headshot from '../../assets/images/image8.jpeg'
 
 export default function Services() {
 
@@ -30,8 +31,11 @@ export default function Services() {
         </div>
       </div>
       <div className="service service--last">
-        <h3 className="service__title service__title--last">Getting ready for your appointment?</h3>
-        <p className="service__desc">Find out what you need to know <Link className="service__link" to='/faq'>here!</Link></p>
+        <div className="service__faq">
+          <h3 className="service__title service__title--last">Getting ready for your appointment?</h3>
+          <p className="service__desc">Find out what you need to know <Link className="service__link" to='/faq'>here!</Link></p>
+        </div>
+        <img className="service__image" src={headshot} alt="" />
       </div>
     </main>
   )

@@ -35,6 +35,7 @@ export default function Login() {
   return (
     <main className="account">
       <h1 className="account__heading">Login</h1>
+      <p>Please login to book an appointment.</p>
       <form className="account__form" onSubmit={handleLogin}>
         <input className="account__input" placeholder="Email" name="email" />
         <input className="account__input" placeholder="Password" name="password" type="password" />

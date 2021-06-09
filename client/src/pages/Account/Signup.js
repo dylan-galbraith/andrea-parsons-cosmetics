@@ -43,6 +43,7 @@ export default function Signup() {
   return (
     <main className="account">
       <h1 className="account__heading">Signup</h1>
+      <p>Please sign up to book an appointment.</p>
       <form className="account__form" onSubmit={handleSubmit}>
         <input className="account__input" placeholder="Email" name="email" />
         <input className="account__input" placeholder="Password" name="password" type="password" />

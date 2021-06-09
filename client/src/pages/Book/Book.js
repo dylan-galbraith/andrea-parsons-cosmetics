@@ -183,7 +183,7 @@ export default function Book() {
         <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
         <form className="book__form" onSubmit={handleDate}>
           <p className="book__text">Please select a date to view/add time slots:</p>
-          <input className="book__input" type="date" name="date" onChange={handleDate}/>
+          <input className="book__input" type="date" name="date" min={minDate()} onChange={handleDate} value={date}/>
         </form>
         
         {appts.map(item => {

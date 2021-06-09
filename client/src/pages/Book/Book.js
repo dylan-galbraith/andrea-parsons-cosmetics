@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 import AddAppt from './AddAppt';
 import AddModal from './AddModal';
 import deleteIcon from '../../assets/icons/delete-icon.svg'
+import headshot from '../../assets/images/image6.jpeg'
 
 Modal.setAppElement(document.getElementById('root'))
 
@@ -226,9 +227,14 @@ export default function Book() {
       >
         {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
       </Modal>
-      <h1 className="book__heading">Book Your Next Appointment</h1>
-      <h3 className="book__welcome">Hello {currentUser.displayName}!</h3>
-      <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
+      <div className="book__first">
+        <div className="book__intro">
+          <h1 className="book__heading">Book Your Next Appointment</h1>
+          <h3 className="book__welcome">Hello {currentUser.displayName}!</h3>
+          <p className="book__notyou">Not you? <button className="book__logout" onClick={handleLogout}>Logout</button></p>
+        </div>
+        <img className="book__image" src={headshot} alt="" />
+      </div>
       <form className="book__form" onSubmit={handleDate}>
         <p className="book__text">Please select a date to view available times:</p>
         <input className="book__input" type="date" min={minDate()} name="date" onChange={handleDate} value={date}/>

@@ -16,7 +16,8 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         <p className="book__modal__label">Location:</p>
         <p className="book__modal__info">{selectedAppt.location}</p>
       </div>
-      <form onSubmit={handleConfirmation} className="book__modal__form">
+      <form onSubmit={handleConfirmation} className="book__modal__form" name="bookings" netlify method="POST">
+        <input type="hidden" name="form-name" value="bookings" />
         <p className="book__modal__label">Service:</p>
         <select name="service" className="book__modal__select">
           <option value="">--Select Service--</option>
@@ -25,7 +26,7 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         </select>
         <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
         <p>{error}</p>
-        <button className="book__modal__button">BOOK</button>
+        <button className="book__modal__button" type="submit">BOOK</button>
       </form>
       <button onClick={closeModal} className="book__modal__button book__modal__button--cancel">CANCEL</button>
     </div>

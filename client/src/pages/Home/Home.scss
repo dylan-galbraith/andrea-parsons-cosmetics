@@ -7,8 +7,12 @@
     width: 100vw;
     height: 80vh;
     object-fit: cover;
-    object-position: 0 -100px;
+    object-position: 50% 50px;
     display: block;
+    @include tablet {
+      object-position: 0 -50px;
+      height: 100vh;
+    }
     @include desktop {
       object-position: 0 -300px;
       height: 120vh;

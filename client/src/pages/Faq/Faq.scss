@@ -2,33 +2,50 @@
 @use '../../partials/mixins' as *;
 
 .faq {
-  padding-top: 7rem;
+  padding-top: 12rem;
+  @include desktop {
+    padding-top: 7rem;
+  }
 
   &__heading {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 200;
     text-align: center;
     margin-bottom: 1rem;
+    @include tablet {
+      font-size: 3.5rem;
+    }
   }
 
   &__card {
-    width: 60rem;
-    margin: 0 auto;
-    padding-bottom: 2rem;
+    padding: 1rem;
+    @include desktop {
+      padding: 0 0 2rem;
+      width: 60rem;
+      margin: 0 auto;  
+    }
   }
 
   &__question {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 200;
     padding-bottom: 1rem;
+    @include tablet {
+      font-size: 2rem;
+    }
   }
 
   &__answer {
-    padding-left: 3rem;
     line-height: 1.5rem;
+    @include tablet {
+      padding-left: 3rem;
+    }
   }
 
   &__list {
-    padding-left: 6rem;
+    padding-left: 2rem;
+    @include tablet {
+      padding-left: 6rem;
+    }
   }
 }

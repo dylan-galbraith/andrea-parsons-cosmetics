@@ -15,7 +15,7 @@
   width: 100%;
   padding: 1rem 1rem 0;
   background-color: white;
-  box-shadow: 0 10px 10px white;
+  box-shadow: 0 10px 10px 6px white;
   position: fixed;
   @include desktop {
     flex-direction: row;

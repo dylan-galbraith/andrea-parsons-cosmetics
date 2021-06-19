@@ -23,8 +23,8 @@ export default function Contact() {
         <input className="contact__input" placeholder="First Name" />
         <input className="contact__input" placeholder="Last Name" />
         <input className="contact__input" placeholder="Email" />
-        <textarea className="contact__input contact__input--textarea" placeholder="Message" ></textarea>
-        <button className="contact__button contact__button--brown">SEND</button>
+        <textarea className="contact__input contact__input--textarea" placeholder="Message" />
+        <button className="contact__button contact__button--brown" type="submit">SEND</button>
       </form>
     </main>
   )

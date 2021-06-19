@@ -1,6 +1,12 @@
 import React from 'react'
+import { useAuth } from '../../contexts/AuthContext'
 
-export default function ApptModal({ selectedAppt, date, handleConfirmation, error, closeModal }) {
+export default function ApptModal({ selectedAppt, date, handleConfirmation, error, closeModal, clients }) {
+  const { currentUser, logout } = useAuth()
+  const currentClient = clients.find(client => client.id === currentUser.uid)
+  console.log(currentClient);
+
+
   return (
     <div className="book__card">
       <h2 className="book__modal__heading">Confirm Booking</h2>
@@ -18,6 +24,11 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
       </div>
       <form onSubmit={handleConfirmation} className="book__modal__form" name="bookings" netlify method="POST">
         <input type="hidden" name="form-name" value="bookings" />
+        <input type="hidden" name="first_name" value={currentClient.firstName} />
+        <input type="hidden" name="last_name" value={currentClient.lastName} />
+        <input type="hidden" name="email" value={currentClient.email} />
+        <input type="hidden" name="phone" value={currentClient.phone} />
+
         <p className="book__modal__label">Service:</p>
         <select name="service" className="book__modal__select">
           <option value="">--Select Service--</option>

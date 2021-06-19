@@ -182,6 +182,7 @@ export default function Book() {
     } catch {
     }
   }
+  console.log(currentUser);
 
   if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) {
     return (
@@ -240,7 +241,7 @@ export default function Book() {
         className="book__modal"
         style={customStyles}
       >
-        {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} />}
+        {complete ? <CompleteModal closeModalRefresh={closeModalRefresh} /> : <ApptModal selectedAppt={selectedAppt} date={date} handleConfirmation={handleConfirmation} error={error} closeModal={closeModal} clients={clients} />}
       </Modal>
       <div className="book__first">
         <div className="book__intro">

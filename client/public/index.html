@@ -28,10 +28,10 @@
   </head>
   <body>
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input className="contact__input" placeholder="First Name" />
-      <input className="contact__input" placeholder="Last Name" />
-      <input className="contact__input" placeholder="Email" />
-      <textarea className="contact__input contact__input--textarea" placeholder="Message" ></textarea>
+      <input className="contact__input" placeholder="First Name" name="first_name"/>
+      <input className="contact__input" placeholder="Last Name" name="last_name" />
+      <input className="contact__input" placeholder="Email" name="email" />
+      <textarea className="contact__input contact__input--textarea" placeholder="Message" name="message" />
       <button type="submit" className="contact__button contact__button--brown">SEND</button>
     </form>
 

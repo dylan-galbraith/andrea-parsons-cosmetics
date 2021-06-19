@@ -2,7 +2,7 @@ import React from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 
 export default function ApptModal({ selectedAppt, date, handleConfirmation, error, closeModal, clients }) {
-  const { currentUser, logout } = useAuth()
+  const { currentUser } = useAuth()
   const currentClient = clients.find(client => client.id === currentUser.uid)
   console.log(currentClient);
 

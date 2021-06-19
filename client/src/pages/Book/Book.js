@@ -13,6 +13,12 @@ import headshot from '../../assets/images/image6.jpeg'
 
 Modal.setAppElement(document.getElementById('root'))
 
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
+
 const customStyles = {
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.7)'
@@ -105,6 +111,15 @@ export default function Book() {
         service: e.target.service.value,
         comments: e.target.comments.value
       }
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "bookings", ...client })
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error));
+
       axios
         .put(`${API_URL}/appointments/${selectedAppt.id}/${API_KEY}`, client)
         .then(response => {

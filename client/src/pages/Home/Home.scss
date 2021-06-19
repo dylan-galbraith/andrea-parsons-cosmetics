@@ -2,13 +2,13 @@
 @use '../../partials/mixins' as *;
 
 .home {
-  padding-top: 6rem;
+  padding-top: 3rem;
 
   &__hero {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    object-position: 50% -50px;
+    object-position: 50% 0px;
     display: block;
     @include tablet {
       object-position: 0 -150px;

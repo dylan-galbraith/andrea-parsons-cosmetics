@@ -91,12 +91,26 @@
   color: white;
   display: flex;
   align-items: center;
-  padding: 3rem 5rem;
+  padding: 1rem;
   justify-content: center;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    padding: 2rem 5rem;
+    justify-content: space-between;
+  }
+  @include desktop {
+    padding: 3rem 5rem;
+    justify-content: center;
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    @include tablet {
+      align-items: initial;
+    }
   }
 
   &__heading {
@@ -116,8 +130,11 @@
   }
 
   &__logo {
-    width: 40%;
-    margin-left: 8rem;
+    width: 15rem;
+    @include desktop {
+      width: 25rem;
+      margin-left: 8rem;
+    }
   }
 }
 

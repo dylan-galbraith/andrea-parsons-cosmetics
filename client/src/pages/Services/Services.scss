@@ -5,15 +5,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60rem;
   margin: 0 auto 2rem;
-  padding-top: 7rem;
+  padding-top: 12rem;
+
+  @include desktop {
+    padding-top: 7rem;
+    width: 60rem;
+  }
 
   &__heading {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 200;
     text-align: center;
-    margin-bottom: 1rem;
+    @include tablet {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
   }
 }
 
@@ -23,15 +30,26 @@
   align-items: center;
   padding: 1rem;
   border-top: 1px solid $primary-color;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+    padding: 1rem 2rem;
+  }
 
   &--last {
     border: none;
-    padding: 1rem 0;
+    padding: 0;
+    @include tablet {
+      padding: 1rem 0;
+    }
   }
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 200;
+    @include tablet {
+      font-size: 2rem;
+    }
 
     &--last {
       padding: 1rem;
@@ -40,7 +58,9 @@
   }
   
   &__bio {
-    width: 70%;
+    @include tablet {
+      width: 70%;
+    }
   }
 
   &__expect {
@@ -59,10 +79,16 @@
   }
 
   &__image {
-    width: 30rem;
+    width: 100%;
     height: 20rem;
     object-fit: cover;
-    object-position: 0 -75px;
-    margin-right: 3rem;
+    object-position: 0 20%;
+    margin-top: 1rem;
+    @include tablet {
+      width: 30rem;
+      height: 20rem;  
+      margin-right: 3rem;
+      margin-top: 0;
+    }
   }
 }

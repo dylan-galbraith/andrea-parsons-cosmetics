@@ -6,7 +6,6 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
   const currentClient = clients.find(client => client.id === currentUser.uid)
   console.log(currentClient);
 
-
   return (
     <div className="book__card">
       <h2 className="book__modal__heading">Confirm Booking</h2>
@@ -28,6 +27,8 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         <input type="hidden" name="last_name" value={currentClient.lastName} />
         <input type="hidden" name="email" value={currentClient.email} />
         <input type="hidden" name="phone" value={currentClient.phone} />
+        <input type="hidden" name="date" value={date} />
+        <input type="hidden" name="time" value={selectedAppt.hour + ":00"} />
 
         <p className="book__modal__label">Service:</p>
         <select name="service" className="book__modal__select">

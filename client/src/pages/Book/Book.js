@@ -115,7 +115,7 @@ export default function Book() {
         email: e.target.email.value,
         phone: e.target.phone.value,
         date: e.target.date.value,
-        time: e.target.date.time
+        time: e.target.time.value
       }
 
       fetch("/", {
@@ -123,7 +123,7 @@ export default function Book() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "bookings", ...client })
       })
-        .then(() => alert("Success!"))
+        .then()
         .catch(error => alert(error));
 
       axios

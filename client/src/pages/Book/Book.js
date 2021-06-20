@@ -109,7 +109,13 @@ export default function Book() {
       const client = {
         id: currentUser.uid,
         service: e.target.service.value,
-        comments: e.target.comments.value
+        comments: e.target.comments.value,
+        first_name: e.target.first_name.value,
+        last_name: e.target.last_name.value,
+        email: e.target.email.value,
+        phone: e.target.phone.value,
+        date: e.target.date.value,
+        time: e.target.date.time
       }
 
       fetch("/", {

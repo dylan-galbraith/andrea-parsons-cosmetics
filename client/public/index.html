@@ -35,8 +35,12 @@
       <textarea className="contact__input contact__input--textarea" placeholder="Message" name="message" ></textarea>
       <button type="submit" className="contact__button contact__button--brown">SEND</button>
     </form>
-    <!-- Booking Form - Netlify
+    <!-- Booking Form - Netlify -->
     <form name="bookings" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="first_name" />
+      <input type="hidden" name="last_name" />
+      <input type="hidden" name="email" />
+      <input type="hidden" name="phone" />
       <p className="book__modal__label">Service:</p>
       <select name="service" className="book__modal__select">
         <option value="">--Select Service--</option>
@@ -46,7 +50,7 @@
       <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." ></textarea>
       <p>{error}</p>
       <button className="book__modal__button">BOOK</button>
-    </form> -->
+    </form>
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

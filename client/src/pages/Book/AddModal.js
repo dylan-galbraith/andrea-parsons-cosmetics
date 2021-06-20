@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function AddModal({ closeModal, error, addAppt }) {
   return (
-    <div className="book__card">
+    <div className="book__card book__card--big">
       <form onSubmit={addAppt} className="book__modal__form">
       <select name="location" className="book__modal__select">
         <option value="">--Select Location--</option>

@@ -7,7 +7,7 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
   console.log(currentClient);
 
   return (
-    <div className="book__card">
+    <div className="book__card book__card--big">
       <h2 className="book__modal__heading">Confirm Booking</h2>
       <div className="book__modal__section">
         <p className="book__modal__label">Date:</p>

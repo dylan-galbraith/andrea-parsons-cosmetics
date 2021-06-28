@@ -15,7 +15,7 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
       </div>
       <div className="book__modal__section">
         <p className="book__modal__label">Time:</p>
-        <p className="book__modal__info">{selectedAppt.hour>12 ? selectedAppt.hour - 12 : selectedAppt.hour}:00{selectedAppt.hour>11 ? "pm" : "am"} - {selectedAppt.hour>11 ? selectedAppt.hour - 11 : selectedAppt.hour + 1}:00{selectedAppt.hour>10 ? "pm" : "am"}</p>
+        <p className="book__modal__info">{selectedAppt.hour}</p>
       </div>
       <div className="book__modal__section">
         <p className="book__modal__label">Location:</p>

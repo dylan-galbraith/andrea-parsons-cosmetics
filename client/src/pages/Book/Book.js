@@ -91,14 +91,8 @@ export default function Book() {
           setAppts(respAppts)
         }
       })
-      .then(() => {
-        setDate(minDate())
-      })
-      .then(() => {
-        setAvail(appts.filter(item => item.date === date && !item.filled))
-      })
     })
-  }, [appts, date])
+  }, [])
 
   function handleDate(e) {
     e.preventDefault();

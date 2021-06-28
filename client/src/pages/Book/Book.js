@@ -98,7 +98,7 @@ export default function Book() {
         setAvail(appts.filter(item => item.date === date && !item.filled))
       })
     })
-  }, [])
+  }, [appts, date])
 
   function handleDate(e) {
     e.preventDefault();

@@ -35,6 +35,7 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
           <option value="">--Select Service--</option>
           <option value="Botox">Botox</option>
           <option value="Derma Fillers">Derma Fillers</option>
+          <option value="Derma Fillers">IV Vitamin Therapy</option>
         </select>
         <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
         <p>{error}</p>

@@ -27,6 +27,7 @@ const customStyles = {
 
 const API_URL = process.env.REACT_APP_API_URL
 const API_KEY = process.env.REACT_APP_DB_KEY
+console.log(API_URL);
 
 export default function Book() {
 
@@ -193,7 +194,6 @@ export default function Book() {
     } catch {
     }
   }
-  console.log(currentUser);
 
   if (currentUser.uid === process.env.REACT_APP_ADMIN_ID) {
     return (
@@ -219,7 +219,7 @@ export default function Book() {
               <div key={item.id} className={item.filled ? "book__card book__card--filled" : "book__card"}>
                 <img onClick={()=>{deleteAppt(item.id)}} className="book__card__icon" src={deleteIcon} alt=""/>
                 <p className="book__card__time">{item.filled ? "BOOKED" : ""}</p>
-                <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
+                <p className="book__card__time">{item.hour}</p>
                 <p className="book__card__text">Location: {item.location}</p>
                 <p className={item.filled ? "book__card__text" : "hidden"}>Service: {item.services}</p>
                 <p className={item.filled ? "book__card__text" : "hidden"}>Comments: {item.comments}</p>
@@ -272,7 +272,7 @@ export default function Book() {
         </div> : avail.map(item => {
           return (
             <div key={item.id} onClick={()=>{openModal(item)}} className="book__card">
-              <p className="book__card__time">{item.hour>12 ? item.hour - 12 : item.hour}:00{item.hour>11 ? "pm" : "am"} - {item.hour>11 ? item.hour - 11 : item.hour + 1}:00{item.hour>10 ? "pm" : "am"} </p>
+              <p className="book__card__time">{item.hour} </p>
               <p className="book__card__text">Location: {item.location}</p>
             </div>
           )  

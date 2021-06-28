@@ -20,7 +20,7 @@ model Client {
 
 model Appointment {
   id              Int                 @id @default(autoincrement())
-  hour            Int                 
+  hour            String              @db.VarChar(255) 
   date            String              @db.VarChar(255)
   filled          Boolean             @default(false)
   location        String              @db.VarChar(255)

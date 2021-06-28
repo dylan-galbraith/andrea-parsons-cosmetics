@@ -37,6 +37,15 @@ export default function Services() {
           <p className="service__desc">A typical appointment for filler can range from 45-75 minutes. A numbing agent is applied to assist in making the procedure as comfortable as possible. Together we will collaborate on finding the best option for you and your face! </p>
         </div>
       </div>
+      <div className="service">
+        <h3 className="service__title">IV Vitamin Therapy</h3>
+        <div className="service__bio">
+          <p className="service__expect">About:</p>
+          <p className="service__desc">Our infusion bags are made with premium Health Canada approved ingredients. There are four pre-mixed treatments to choose from in order to taper individual needs. See below for further details and benefits.</p>
+          <p className="service__expect">What to Expect:</p>
+          <p className="service__desc">A typical appointment for IV Vitamin Therapy is approximately 40 minutes. You can also add an infusion while receiving another treatment like Botox!</p>
+        </div>
+      </div>
     </main>
   )
 }

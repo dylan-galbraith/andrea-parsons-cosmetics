@@ -59,7 +59,7 @@
   
   &__bio {
     @include tablet {
-      width: 70%;
+      max-width: 70%;
     }
   }
 

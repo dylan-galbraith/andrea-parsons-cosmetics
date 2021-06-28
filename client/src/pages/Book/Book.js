@@ -88,8 +88,13 @@ export default function Book() {
         if(response.status === 200) {
           setClients(response.data)
           setAppts(respAppts)
-          setDate(minDate())
         }
+      })
+      .then(() => {
+        setDate(minDate())
+      })
+      .then(() => {
+        setAvail(appts.filter(item => item.date === date && !item.filled))
       })
     })
   }, [])

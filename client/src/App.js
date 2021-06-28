@@ -14,6 +14,7 @@ import Login from './pages/Account/Login';
 import PostSignup from './pages/Account/PostSignup';
 import Services from './pages/Services/Services';
 import Faq from './pages/Faq/Faq';
+import Prices from './pages/Prices/Prices';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path='/contact' component={Contact} />
             <Route path='/services' component={Services} />
             <Route path='/faq' component={Faq} />
+            <Route path='/prices' component={Prices} />
             <PrivateRoute path='/post-signup' component={PostSignup} />
             <PrivateRoute path='/book' component={Book} />
             <Route path='/signup' component={Signup} />

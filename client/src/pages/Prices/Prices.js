@@ -25,7 +25,7 @@ export default function Prices() {
         </div>
         <div className="prices__col">
           <p className="prices__item">Energy IV Therapy <span className="prices__price">- $175</span></p>
-          <p className="prices__item">Radiance IV Therapy <span className="prices__price">- 1275</span></p>
+          <p className="prices__item">Radiance IV Therapy <span className="prices__price">- 175</span></p>
           <p className="prices__item">Boost IV Therapy <span className="prices__price">- $175</span></p>
           <p className="prices__item">Immune IV Therapy <span className="prices__price">- $255</span></p>        
         </div>

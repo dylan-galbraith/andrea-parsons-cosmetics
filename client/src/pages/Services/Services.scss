@@ -91,4 +91,10 @@
       margin-top: 0;
     }
   }
+
+  &__desc {
+    > a {
+      color: $primary-color;
+    }
+  }
 }

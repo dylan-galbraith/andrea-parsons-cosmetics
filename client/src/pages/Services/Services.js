@@ -44,6 +44,8 @@ export default function Services() {
           <p className="service__desc">Our infusion bags are made with premium Health Canada approved ingredients. There are four pre-mixed treatments to choose from in order to taper individual needs. See below for further details and benefits.</p>
           <p className="service__expect">What to Expect:</p>
           <p className="service__desc">A typical appointment for IV Vitamin Therapy is approximately 40 minutes. You can also add an infusion while receiving another treatment like Botox!</p>
+          <p className="service__desc">Find out more <a href="https://www.farsk.health/iv-drips/immune" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
         </div>
       </div>
     </main>

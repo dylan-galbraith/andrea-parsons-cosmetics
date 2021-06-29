@@ -4,7 +4,6 @@ import { useAuth } from '../../contexts/AuthContext'
 export default function ApptModal({ selectedAppt, date, handleConfirmation, error, closeModal, clients }) {
   const { currentUser } = useAuth()
   const currentClient = clients.find(client => client.id === currentUser.uid)
-  console.log(currentClient);
 
   return (
     <div className="book__card book__card--big">
@@ -34,8 +33,10 @@ export default function ApptModal({ selectedAppt, date, handleConfirmation, erro
         <select name="service" className="book__modal__select">
           <option value="">--Select Service--</option>
           <option value="Botox">Botox</option>
-          <option value="Derma Fillers">Derma Fillers</option>
+          <option value="Derma Fillers">Dermal Fillers</option>
           <option value="Derma Fillers">IV Vitamin Therapy</option>
+          <option value="Derma Fillers">Mini Lip</option>
+          <option value="Derma Fillers">Full Lip</option>
         </select>
         <textarea name="comments" className="book__modal__textarea" placeholder="If you would like to request additional services, or have any questions, please let me know here." />
         <p>{error}</p>
